@@ -26,8 +26,9 @@ fits inside a credit card's footprint (85.6 × 54 mm).
 
 | Button | Does |
 |---|---|
-| **Tap** | Next scene: **photo + name** → **big QR code + "scan me"** → **info card + contact** → back to the start |
+| **Tap** | Next scene: **photo + name** → **big QR code + "scan me"** → **info card + contact** → **button help page** → back to the start |
 | **Hold 1 s** | Both screens off, low-power sleep. Tap to wake |
+| *(no presses for 5 min)* | Turns itself off (same sleep). Tap to wake |
 
 The slide switch on the edge cuts the battery completely.
 
@@ -41,7 +42,7 @@ The slide switch on the edge cuts the battery completely.
 
 ## Contents
 
-1. [Parts list and prices](docs/BOM.md)
+1. [Parts list and prices](docs/BOM.md) · **[Shopping list with buy links](docs/BUY.md)**
 2. [Wiring](docs/WIRING.md) ([diagram](docs/wiring.svg))
 3. [Perfboard layout and build steps](docs/BUILD.md)
 4. [Firmware: install, customise and flash](#firmware)
@@ -66,7 +67,7 @@ The slide switch on the edge cuts the battery completely.
 then runs only while plugged in over USB-C, but the button still works.
 **Easier (~£14):** use a Seeed XIAO ESP32-C3, which has the charger built
 in.
-Full details: **[docs/BOM.md](docs/BOM.md)**.
+Buy links for everything: **[docs/BUY.md](docs/BUY.md)**. Full details: [docs/BOM.md](docs/BOM.md).
 
 ## Firmware
 
@@ -89,7 +90,8 @@ Open `firmware/business_card/business_card.ino`. Then, in the
 
 - pick your board (`BOARD_ESP32C3_SUPERMINI`, the default, or `BOARD_XIAO_ESP32C3`)
 - fill in your name, title, email and website
-- optional: set `AUTO_ADVANCE_MS` to make it also change scene by itself
+- optional: change `AUTO_SLEEP_MS` (auto-off time, default 5 minutes, 0 = never)
+  or set `AUTO_ADVANCE_MS` to make it also change scene by itself
 
 ### 3. Add your photo and QR code (optional, but that's the fun part)
 
@@ -114,7 +116,8 @@ initials instead.
    - SuperMini: **ESP32C3 Dev Module**, then set **USB CDC On Boot → Enabled**
    - XIAO: **XIAO_ESP32C3**
 3. Choose the port and click **Upload**. Make sure the card is **awake**:
-   while it's asleep (after holding the button), USB uploads won't connect.
+   while it's asleep (after holding the button, or 5 minutes with no
+   presses), USB uploads won't connect. Tap the button first.
 4. If the upload won't start, hold **BOOT**, tap **RESET**, release **BOOT**,
    then upload again.
 

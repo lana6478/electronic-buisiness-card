@@ -4,6 +4,8 @@ Prices are rough AliExpress / eBay figures in GBP (late 2026), including cheap
 shipping. Amazon usually costs 2–3× more but arrives the next day. The search
 terms are what to type into AliExpress.
 
+> **Want the links?** See **[BUY.md](BUY.md)** for a shopping list with links for every part.
+
 ## Main build: battery + button (~£10)
 
 | # | Part | Qty | Search term | Approx. | Notes |
@@ -53,8 +55,12 @@ neater, but the total comes to about £14.
 |---|---|---|
 | Screens on, brightness 180 | ~50–60 mA | ~3–4 hours |
 | Screens on, brightness 80 | ~40 mA | ~5 hours |
-| Asleep (hold button) | ~1–2 mA | days |
+| Asleep (hold button, or auto-off after 5 min) | ~1–3 mA* | 3–8 days |
 | Slide switch off | 0 | months |
+
+\* The SuperMini's red power LED alone uses about 1–2 mA. For the longest
+sleep time, remove it: carefully scrape it off or desolder it. Otherwise just
+flip the slide switch off when the card goes in your pocket.
 
 ## Why these parts?
 

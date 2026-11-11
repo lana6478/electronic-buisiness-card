@@ -32,6 +32,8 @@
 // 4. Button, timing and brightness
 // ---------------------------------------------------------------------
 #define LONG_PRESS_MS    1000   // hold this long to switch the screens off
+#define AUTO_SLEEP_MS    300000UL // turn off by itself after 5 min with no
+                                  // button presses (0 = never)
 #define AUTO_ADVANCE_MS  0      // 0 = only change on button press,
                                 // e.g. 8000 = also change every 8 seconds
 #define TFT_BRIGHTNESS   180    // 0-255 backlight (lower = longer battery)

@@ -4,6 +4,7 @@
 //
 //  Button:  tap        -> next scene (changes BOTH screens)
 //           hold 1 sec -> screens off + low-power sleep (tap to wake)
+//  Auto-off: goes to sleep by itself after AUTO_SLEEP_MS with no presses
 //
 //  Edit config.h for your name, board and pins.
 //  Run tools/make_assets.py to turn your photo / QR link into
@@ -38,8 +39,8 @@ bool oledOk = false;
 
 // ------------------------------------------------------------ scenes
 // A scene = what the colour screen shows + what the OLED shows.
-enum SceneType : uint8_t { SC_CARD, SC_QR, SC_INFO };
-SceneType scenes[3];
+enum SceneType : uint8_t { SC_CARD, SC_QR, SC_INFO, SC_HELP };
+SceneType scenes[4];
 uint8_t sceneCount = 0, scene = 0;
 
 void buildScenes() {
@@ -48,6 +49,7 @@ void buildScenes() {
   scenes[sceneCount++] = SC_QR;                       // big QR + "scan me"
 #endif
   scenes[sceneCount++] = SC_INFO;                     // text card + contact
+  scenes[sceneCount++] = SC_HELP;                     // how to use the button
 }
 
 // --------------------------------------------------------------- TFT
@@ -124,6 +126,33 @@ void tftQr() {
 }
 #endif
 
+void tftHelp() {
+  const uint16_t bg = tft.color565(20, 24, 40);
+  const uint16_t card = tft.color565(45, 52, 80);
+  tft.fillScreen(bg);
+  tftCenter("HOW TO USE", 18, 3, ST77XX_YELLOW);
+  tftCenter("the button", 48, 2, ST77XX_WHITE);
+
+  struct { const char *head, *l1, *l2; uint16_t col; } rows[] = {
+    { "TAP",         "next page",       "",                  ST77XX_CYAN   },
+    { "HOLD 1 SEC",  "screens off",     "(sleep)",           ST77XX_YELLOW },
+    { "WHEN ASLEEP", "tap to wake up",  "",                  ST77XX_GREEN  },
+  };
+  int y = 78;
+  for (auto &r : rows) {
+    tft.fillRoundRect(12, y, TFT_WIDTH - 24, 52, 8, card);
+    tftCenter(r.head, y + 8, 2, r.col);
+    String line = String(r.l1) + (r.l2[0] ? String(" ") + r.l2 : String(""));
+    tftCenter(line.c_str(), y + 32, 1, ST77XX_WHITE);
+    y += 60;
+  }
+#if AUTO_SLEEP_MS > 0
+  char buf[40];
+  snprintf(buf, sizeof(buf), "turns off by itself after %lu min", (unsigned long)(AUTO_SLEEP_MS / 60000UL));
+  tftCenter(buf, y + 4, 1, tft.color565(170, 170, 190));
+#endif
+}
+
 // -------------------------------------------------------------- OLED
 // Yellow/blue OLEDs: the top 16 pixel rows are yellow, the rest blue.
 void oledCenter(const char *s, int y, uint8_t size) {
@@ -162,6 +191,13 @@ void oledShow(SceneType t) {
       oledCenter(CARD_EMAIL, 24, 1);
       oledCenter(CARD_WEBSITE, 38, 1);
       break;
+    case SC_HELP:
+      oledCenter("BUTTON HELP", 4, 1);
+      oled.setTextSize(1);
+      oled.setCursor(4, 20); oled.print("tap   = next page");
+      oled.setCursor(4, 31); oled.print("hold  = sleep");
+      oled.setCursor(4, 42); oled.print("tap again = wake");
+      break;
   }
   oledDots();
   oled.display();
@@ -172,6 +208,7 @@ void showScene() {
   switch (scenes[scene]) {
     case SC_CARD:  tftPhoto(); break;
     case SC_INFO:  tftInfo();  break;
+    case SC_HELP:  tftHelp();  break;
 #if HAVE_QR
     case SC_QR:    tftQr();    break;
 #endif
@@ -236,23 +273,33 @@ void setup() {
 // ------------------------------------------------------------- loop
 void loop() {
   static bool     held = false, longDone = false;
-  static uint32_t pressedAt = 0, lastAuto = millis();
+  static uint32_t pressedAt = 0, lastAuto = millis(), lastPress = millis();
   const uint32_t  now  = millis();
   const bool      down = digitalRead(BTN_PIN) == LOW;
 
   if (down && !held) {                       // just pressed
     delay(20);                               // debounce
-    if (digitalRead(BTN_PIN) == LOW) { held = true; longDone = false; pressedAt = now; }
+    if (digitalRead(BTN_PIN) == LOW) { held = true; longDone = false; pressedAt = now; lastPress = now; }
   } else if (down && held && !longDone && now - pressedAt >= LONG_PRESS_MS) {
     longDone = true;                         // held long enough -> sleep
     sleepUntilButton();
     held = false;
-    lastAuto = millis();
+    lastAuto = lastPress = millis();
   } else if (!down && held) {                // released
     held = false;
     if (!longDone) { nextScene(); lastAuto = now; }
     delay(20);
   }
+
+#if AUTO_SLEEP_MS > 0                        // auto-off after no presses
+  if (!held && now - lastPress >= AUTO_SLEEP_MS) {
+    sleepUntilButton();
+    lastAuto = lastPress = millis();
+    return;
+  }
+#else
+  (void)lastPress;
+#endif
 
 #if AUTO_ADVANCE_MS > 0
   if (!held && now - lastAuto >= AUTO_ADVANCE_MS) { lastAuto = now; nextScene(); }

@@ -47,6 +47,8 @@ and it will always be right.
 
 - **Tap:** next scene (changes both screens)
 - **Hold 1 s:** screens off and low-power sleep. **Tap** to wake.
+- **No presses for 5 minutes:** turns itself off (the same sleep).
+- The last page in the cycle is a **help page** that explains all of this.
 
 ## Battery (SuperMini + TP4056)
 
