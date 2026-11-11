@@ -58,7 +58,7 @@ The slide switch on the edge cuts the battery completely.
 | Colour screen | 1.69" ST7789 240×280 SPI IPS, 8-pin | £3 |
 | Info screen | 0.96" SSD1306 128×64 I2C OLED, 4-pin (yellow/blue) | £1.50 |
 | Battery | 3.7 V LiPo 250 mAh, flat (302030) | £2 |
-| Charger | TP4056 USB-C module with protection, plus a 1N5817 diode | £0.40 |
+| Charger | TP4056 USB-C module with protection, plus a 1N5817/1N5818/1N5819 diode | £0.40 |
 | Button + switch | 6×6 mm tactile button, SS12D00 slide switch | £0.10 |
 | Board | 5×7 cm double-sided perfboard | £0.30 |
 | Wire + headers | 30 AWG wire-wrap wire, pin headers | £0.50 |

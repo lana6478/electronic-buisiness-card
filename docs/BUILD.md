@@ -84,7 +84,7 @@ flat on top of them (insulated with tape).
    and that the button works.
 9. **Fit the charger and battery.** See [WIRING.md](WIRING.md#battery-supermini--tp4056).
    1. Cover the back wiring with kapton or electrical tape.
-   2. Solder the **1N5817 diode** from the switch's **outer** pin to the
+   2. Solder the **1N5817 diode** (a 1N5818 or 1N5819 works too) from the switch's **outer** pin to the
       SuperMini's **5V** pin. The **stripe end goes towards 5V**.
    3. Wire TP4056 **OUT+** to the switch's **middle** pin, and **OUT−** to
       **GND**.

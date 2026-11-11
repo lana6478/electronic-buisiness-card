@@ -57,6 +57,7 @@ and it will always be right.
  LiPo black (−) ── TP4056 B−
  TP4056 OUT+    ── switch middle pin
  switch outer pin ── 1N5817 diode ──▶|── SuperMini 5V pin
+                    (1N5818 or 1N5819 work exactly the same)
                     (stripe/band end points TOWARDS the 5V pin)
  TP4056 OUT−    ── SuperMini GND
 ```

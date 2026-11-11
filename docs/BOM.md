@@ -15,7 +15,7 @@ terms are what to type into AliExpress.
 | 3 | 0.96" OLED, SSD1306, I2C | 1 | `0.96 OLED I2C SSD1306` | £1.20–2.00 | **4-pin** version `GND VCC SCL SDA`. Yellow/blue matches the video, plain white is often cheaper |
 | 4 | 3.7 V LiPo, ~250 mAh, flat | 1 | `302030 lipo 3.7v` | £1.50–2.50 | 3 × 20 × 30 mm. Get one **with a protection circuit** |
 | 5 | TP4056 USB-C charger module **with protection** | 1 | `TP4056 type-c protection` | £0.30–0.50 | The version with **6 pads** (B+ B− OUT+ OUT− IN+ IN−) and two little chips. Usually sold in packs of 5–10 |
-| 6 | Schottky diode 1N5817 (or 1N5819) | 1 | `1N5817` | £0.02 | Stops USB power flowing back into the battery |
+| 6 | Schottky diode 1N5817, 1N5818 or 1N5819 (any of them) | 1 | `1N5817` | £0.02 | Stops USB power flowing back into the battery |
 | 7 | Mini slide switch, 3-pin, 2.54 mm pitch | 1 | `SS12D00G3 slide switch` | £0.05 | Battery on/off |
 | 8 | Tactile push button 6×6 mm | 1 | `6x6 tactile switch 4.3mm` | £0.03 | Changes scenes and sleeps |
 | 9 | Double-sided perfboard 5×7 cm | 1 | `5x7cm double sided prototype PCB` | £0.20 | Usually sold in packs of 10 for about £2 |
