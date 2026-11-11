@@ -106,7 +106,3 @@ initials instead.
   run the script with `--height 240`.
 - **Pages:** each OLED page is one small function in `business_card.ino`
   (`pageMain`, `pageQr`, `pageContact`). Add your own to the `pages[]` list.
-
-## Licence
-
-MIT. Build it, change it, sell it, share it.
