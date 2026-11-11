@@ -3,9 +3,9 @@
 ## Perfboard layout
 
 The board is a 5×7 cm perfboard (24 × 18 holes, 2.54 mm pitch) used in
-landscape. The screens, XIAO, button and switch go on the **front**. The
-wires run on the **back**, with the battery stuck flat on top of them
-(insulated with tape).
+landscape. The screens, SuperMini, button and switch go on the **front**.
+The wires run on the **back**, with the battery and the TP4056 charger stuck
+flat on top of them (insulated with tape).
 
 ### Front
 
@@ -23,7 +23,7 @@ wires run on the **back**, with the battery stuck flat on top of them
   9  │ │               │                                │
  10  │ │               │   ┌───┐ ┌──────────────────┐   │
  11  │ │               │   │ ◉ │ │                  │   │
- 12  │ │               │   └───┘ │  XIAO ESP32-C3   │══ USB-C (sticks out
+ 12  │ │               │   └───┘ │  C3 SuperMini    │══ USB-C (sticks out
  13  │ │               │  button │  lying sideways  │   │    of the right edge)
  14  │ │               │         │                  │   │
  15  │ └───────────────┘         └──────────────────┘   │
@@ -38,19 +38,22 @@ wires run on the **back**, with the battery stuck flat on top of them
 ```
  ┌────────────────────────────────────────────────┐
  │  wires (30 AWG) ...  covered with kapton tape  │
- │        ┌──────────────────────────┐            │
- │        │   LiPo 302030 (3×20×30)  │            │
- │        │   stuck on with foam tape│            │
- │        └──────────────────────────┘            │
+ │  ┌──────────────────────┐                      │
+ │  │ LiPo 302030 (3×20×30)│   ┌───────────────┐  │
+ │  │ foam tape            │   │ TP4056 module │══ USB-C (charging,
+ │  └──────────────────────┘   └───────────────┘  │    over the edge)
  └────────────────────────────────────────────────┘
+   (seen from the back, so the left/right sides are flipped)
 ```
 
 - **TFT:** 8-pin header along row 1, columns 2–9. Put a strip of foam tape
   under the bottom edge of the screen module so it doesn't wobble.
 - **OLED:** 4-pin header in row 1, columns 15–18.
-- **XIAO:** lying sideways in the bottom right with USB-C over the right
-  edge.
-- **Button:** between the TFT and the XIAO, where your thumb lands.
+- **SuperMini:** lying sideways in the bottom right with USB-C over the
+  right edge, for programming.
+- **Button:** between the TFT and the SuperMini, where your thumb lands.
+- **TP4056 (back):** with its USB-C port over the other edge, so the two
+  USB-C ports are easy to tell apart (charging vs programming).
 - **Slide switch:** on the bottom edge, with the lever pointing outwards.
 - Module sizes vary a little between sellers. Lay everything out
   **before** soldering and adjust.
@@ -62,12 +65,10 @@ wires run on the **back**, with the battery stuck flat on top of them
    [WIRING.md](WIRING.md)), flash the firmware and check that both screens
    light up and the button changes scenes. Do this on USB power only, **no
    battery yet**.
-2. **Prepare the XIAO.** Solder about 6 cm of red wire to the **BAT+** pad
-   and black wire to the **BAT−** pad on the **underside**, then solder on
-   the male headers.
-3. **Place the parts.** Push all the modules, the button and the switch
-   through the perfboard. Feed the XIAO's battery wires through a spare hole
-   to the back. Bend one leg of each part to hold it, and check that the
+2. **Solder headers** onto the SuperMini (short male headers). Keep them
+   straight by pushing them into the perfboard while you solder.
+3. **Place the parts.** Push the screens, the SuperMini, the button and
+   the switch through the perfboard. Bend one leg of each part to hold it, and check that the
    outline still fits within 85 × 54 mm.
 4. **Solder all the pins** from the back.
 5. **Run the power rails.** Use two wires: **3V3** to TFT VCC and OLED VCC,
@@ -77,26 +78,29 @@ wires run on the **back**, with the battery stuck flat on top of them
    flat. The battery is going on top of them.
 7. **Check for shorts** with the multimeter's continuity mode:
    - 3V3 to GND: must **not** beep
-   - BAT+ wire to BAT− wire: must **not** beep
+   - 5V to GND: must **not** beep
    - each wire end to end: **must** beep
 8. **Test on USB** (still no battery). Check that the photo and name show,
    and that the button works.
-9. **Fit the battery.**
+9. **Fit the charger and battery.** See [WIRING.md](WIRING.md#battery-supermini--tp4056).
    1. Cover the back wiring with kapton or electrical tape.
-   2. Solder the XIAO's **BAT+** wire to one **outer** switch pin.
-   3. With the switch **off**, solder the LiPo's **red** wire to the
-      switch's **middle** pin.
-   4. Solder the LiPo's **black** wire to the XIAO's **BAT−** wire, and
-      cover the joint with heat-shrink or tape.
-   5. Stick the battery down with foam tape.
-   Work on one battery wire at a time so the bare ends never touch.
-10. **Finish.** Flip the switch on and it should boot from battery. Plug in
-    USB-C to charge.
+   2. Solder the **1N5817 diode** from the switch's **outer** pin to the
+      SuperMini's **5V** pin. The **stripe end goes towards 5V**.
+   3. Wire TP4056 **OUT+** to the switch's **middle** pin, and **OUT−** to
+      **GND**.
+   4. Stick the TP4056 to the back with foam tape, with its USB-C over the
+      edge.
+   5. **Last:** solder the LiPo's **red** wire to **B+**, then its **black**
+      wire to **B−**. Do one wire at a time so the bare ends never touch.
+   6. Stick the battery down with foam tape.
+10. **Finish.** Flip the switch on and it should boot from battery. Plug
+    USB-C into the **TP4056** to charge (red LED = charging, blue/green =
+    full).
 
 ## Keeping it thin
 
 - The battery is 3 mm, the board 1.6 mm, and the TFT on its header about
   6–8 mm, so the card is about 12–14 mm thick in total.
-- To go thinner, solder the XIAO **flat** using its castellated edge pads
-  (attach the battery wires to its underside first), and solder the screens'
-  header pins with the plastic spacer slid off.
+- To go thinner, solder the SuperMini **flat** using its castellated edge
+  pads, and solder the screens' header pins with the plastic spacer slid
+  off.

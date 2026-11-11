@@ -23,7 +23,6 @@
   #define HAVE_PHOTO 1
 #else
   #define HAVE_PHOTO 0
-  #define PHOTO_COUNT 1
 #endif
 
 #if __has_include("qr.h")
@@ -39,19 +38,16 @@ bool oledOk = false;
 
 // ------------------------------------------------------------ scenes
 // A scene = what the colour screen shows + what the OLED shows.
-enum SceneType : uint8_t { SC_CARD, SC_QR, SC_INFO, SC_PHOTO };
-struct Scene { SceneType type; uint8_t photo; };
-Scene scenes[4 + 8];
+enum SceneType : uint8_t { SC_CARD, SC_QR, SC_INFO };
+SceneType scenes[3];
 uint8_t sceneCount = 0, scene = 0;
 
 void buildScenes() {
-  scenes[sceneCount++] = { SC_CARD, 0 };              // photo + name
+  scenes[sceneCount++] = SC_CARD;                     // photo + name
 #if HAVE_QR
-  scenes[sceneCount++] = { SC_QR, 0 };                // big QR + "scan me"
+  scenes[sceneCount++] = SC_QR;                       // big QR + "scan me"
 #endif
-  scenes[sceneCount++] = { SC_INFO, 0 };              // text card + contact
-  for (uint8_t i = 1; i < PHOTO_COUNT && sceneCount < 12; i++)
-    scenes[sceneCount++] = { SC_PHOTO, i };           // extra photos
+  scenes[sceneCount++] = SC_INFO;                     // text card + contact
 }
 
 // --------------------------------------------------------------- TFT
@@ -87,14 +83,14 @@ void drawGradient() {
   }
 }
 
-void tftPhoto(uint8_t idx) {
+void tftPhoto() {
 #if HAVE_PHOTO
   tft.startWrite();
   tft.setAddrWindow(0, 0, PHOTO_W, PHOTO_H);
-  tft.writePixels((uint16_t *)PHOTOS[idx], (uint32_t)PHOTO_W * PHOTO_H, true, false);
+  tft.writePixels((uint16_t *)PHOTO, (uint32_t)PHOTO_W * PHOTO_H, true, false);
   tft.endWrite();
 #else
-  (void)idx;                     // placeholder until you add a photo
+  // placeholder until you add a photo
   drawGradient();
   tft.fillCircle(TFT_WIDTH / 2, TFT_HEIGHT / 2, 60, ST77XX_WHITE);
   tftCenter(CARD_INITIALS, TFT_HEIGHT / 2 - 17, 5, tft.color565(60, 20, 110));
@@ -153,7 +149,6 @@ void oledShow(SceneType t) {
   oled.setTextColor(SSD1306_WHITE);
   switch (t) {
     case SC_CARD:
-    case SC_PHOTO:
       oledCenter(CARD_EMAIL, 4, 1);           // yellow strip
       oledCenter(CARD_NAME, 22, 2);
       oledCenter(CARD_TITLE, 42, 1);
@@ -174,17 +169,15 @@ void oledShow(SceneType t) {
 
 // ------------------------------------------------------------- show
 void showScene() {
-  const Scene &s = scenes[scene];
-  switch (s.type) {
-    case SC_CARD:  tftPhoto(0);       break;
-    case SC_PHOTO: tftPhoto(s.photo); break;
-    case SC_INFO:  tftInfo();         break;
+  switch (scenes[scene]) {
+    case SC_CARD:  tftPhoto(); break;
+    case SC_INFO:  tftInfo();  break;
 #if HAVE_QR
-    case SC_QR:    tftQr();           break;
+    case SC_QR:    tftQr();    break;
 #endif
     default: break;
   }
-  oledShow(s.type);
+  oledShow(scenes[scene]);
 }
 
 void nextScene() {

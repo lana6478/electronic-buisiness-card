@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Helvetica, Arial, sans-serif" font-size="14">
   <rect width="900" height="640" fill="#ffffff"/>
-  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Wiring - Seeed XIAO ESP32-C3 [SuperMini pins in brackets]</text>
+  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Wiring - ESP32-C3 SuperMini [XIAO pins in brackets]</text>
 
   <!-- TFT -->
   <rect x="30" y="70" width="230" height="300" rx="10" fill="#1d3557"/>
@@ -13,7 +13,7 @@
   <rect x="420" y="135" width="60" height="25" rx="5" fill="#999"/>
   <text x="450" y="152" text-anchor="middle" font-size="11">USB-C</text>
   <text x="450" y="285" text-anchor="middle" fill="#fff" font-weight="bold">ESP32-C3</text>
-  <text x="450" y="303" text-anchor="middle" fill="#ccc" font-size="12">XIAO / SuperMini</text>
+  <text x="450" y="303" text-anchor="middle" fill="#ccc" font-size="12">SuperMini / XIAO</text>
 
   <!-- OLED -->
   <rect x="650" y="70" width="220" height="190" rx="10" fill="#1d3557"/>
@@ -50,12 +50,12 @@
     <text x="265" y="276">CS</text>
     <text x="265" y="306">BLK</text>
 
-    <text x="368" y="164" fill="#fff">D8 [GPIO4]</text>
-    <text x="368" y="194" fill="#fff">D10 [GPIO6]</text>
-    <text x="368" y="224" fill="#fff">D0 [GPIO1]</text>
-    <text x="368" y="254" fill="#fff">D1 [GPIO10]</text>
-    <text x="368" y="334" fill="#fff">D2 [GPIO7]</text>
-    <text x="368" y="354" fill="#fff">D3 [GPIO3]</text>
+    <text x="368" y="164" fill="#fff">GPIO4 [D8]</text>
+    <text x="368" y="194" fill="#fff">GPIO6 [D10]</text>
+    <text x="368" y="224" fill="#fff">GPIO1 [D0]</text>
+    <text x="368" y="254" fill="#fff">GPIO10 [D1]</text>
+    <text x="368" y="334" fill="#fff">GPIO7 [D2]</text>
+    <text x="368" y="354" fill="#fff">GPIO3 [D3]</text>
     <text x="368" y="384" fill="#fff">3V3</text>
     <text x="368" y="400" fill="#fff">GND</text>
 
@@ -63,14 +63,14 @@
     <text x="612" y="126">VCC</text>
     <text x="612" y="156">SCL</text>
     <text x="612" y="186">SDA</text>
-    <text x="532" y="204" text-anchor="end" fill="#fff">D5 [GPIO9]</text>
-    <text x="532" y="234" text-anchor="end" fill="#fff">D4 [GPIO8]</text>
+    <text x="532" y="204" text-anchor="end" fill="#fff">GPIO9 [D5]</text>
+    <text x="532" y="234" text-anchor="end" fill="#fff">GPIO8 [D4]</text>
   </g>
 
 
   <!-- Button -->
   <path d="M540 260 H620 V470" stroke="#fb8500" stroke-width="3" fill="none"/>
-  <text x="532" y="264" text-anchor="end" font-size="12" fill="#fff">D7 [GPIO5]</text>
+  <text x="532" y="264" text-anchor="end" font-size="12" fill="#fff">GPIO5 [D7]</text>
   <rect x="590" y="470" width="60" height="60" rx="6" fill="#444"/>
   <circle cx="620" cy="500" r="18" fill="#e63946"/>
   <path d="M650 500 H700 V390 H580" stroke="#000" stroke-width="3" fill="none"/>
@@ -78,19 +78,34 @@
   <text x="620" y="550" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">Push button</text>
   <text x="620" y="566" text-anchor="middle" font-size="12" fill="#444">tap = next, hold = sleep</text>
 
-  <!-- Battery -->
-  <rect x="90" y="470" width="150" height="70" rx="8" fill="#ffd166" stroke="#222"/>
-  <text x="165" y="502" text-anchor="middle" font-weight="bold" fill="#222">3.7 V LiPo</text>
-  <text x="165" y="520" text-anchor="middle" font-size="12" fill="#222">250 mAh (302030)</text>
-  <rect x="290" y="485" width="40" height="22" rx="3" fill="#666"/>
-  <rect x="298" y="479" width="10" height="10" fill="#222"/>
-  <text x="310" y="525" text-anchor="middle" font-size="12" fill="#222">switch</text>
-  <path d="M240 490 H290" stroke="#e63946" stroke-width="3"/>
-  <path d="M330 496 H400 V410" stroke="#e63946" stroke-width="3" fill="none"/>
-  <path d="M240 525 H260 V560 H430 V410" stroke="#000" stroke-width="3" fill="none"/>
-  <text x="394" y="440" text-anchor="end" font-size="12" fill="#222">BAT+</text>
-  <text x="438" y="470" font-size="12" fill="#222">BAT-</text>
-  <text x="300" y="590" text-anchor="middle" font-size="12" fill="#444">Battery pads are on the UNDERSIDE of the XIAO (XIAO only)</text>
+  <!-- Battery: LiPo -> TP4056 -> switch -> diode -> 5V -->
+  <rect x="20" y="470" width="110" height="60" rx="8" fill="#ffd166" stroke="#222"/>
+  <text x="75" y="497" text-anchor="middle" font-weight="bold" fill="#222">3.7V LiPo</text>
+  <text x="75" y="514" text-anchor="middle" font-size="11" fill="#222">250 mAh</text>
+  <rect x="160" y="460" width="100" height="80" rx="6" fill="#1d3557"/>
+  <text x="210" y="490" text-anchor="middle" font-weight="bold" fill="#fff">TP4056</text>
+  <text x="210" y="506" text-anchor="middle" font-size="11" fill="#ddd">USB-C charger</text>
+  <text x="166" y="478" font-size="10" fill="#fff">B+</text>
+  <text x="166" y="534" font-size="10" fill="#fff">B-</text>
+  <text x="254" y="478" text-anchor="end" font-size="10" fill="#fff">OUT+</text>
+  <text x="254" y="534" text-anchor="end" font-size="10" fill="#fff">OUT-</text>
+  <path d="M130 480 H160" stroke="#e63946" stroke-width="3"/>
+  <path d="M130 520 H160" stroke="#000" stroke-width="3"/>
+  <rect x="280" y="463" width="36" height="20" rx="3" fill="#666"/>
+  <rect x="287" y="457" width="9" height="9" fill="#222"/>
+  <text x="298" y="500" text-anchor="middle" font-size="11" fill="#222">switch</text>
+  <path d="M260 473 H280" stroke="#e63946" stroke-width="3"/>
+  <!-- diode -->
+  <path d="M316 473 H335" stroke="#e63946" stroke-width="3"/>
+  <polygon points="335,463 335,483 352,473" fill="#222"/>
+  <rect x="352" y="463" width="3" height="20" fill="#222"/>
+  <text x="345" y="500" text-anchor="middle" font-size="11" fill="#222">1N5817</text>
+  <path d="M355 473 H390 V410" stroke="#e63946" stroke-width="3" fill="none"/>
+  <text x="384" y="440" text-anchor="end" font-size="12" fill="#222">5V</text>
+  <path d="M260 530 H430 V410" stroke="#000" stroke-width="3" fill="none"/>
+  <text x="438" y="470" font-size="12" fill="#222">GND</text>
+  <text x="250" y="565" text-anchor="middle" font-size="12" fill="#444">Charge by plugging USB-C into the TP4056. XIAO instead: skip TP4056 + diode,</text>
+  <text x="250" y="581" text-anchor="middle" font-size="12" fill="#444">LiPo (via switch) goes straight to the BAT+/BAT- pads under the XIAO.</text>
   <text x="450" y="612" text-anchor="middle" font-size="13" fill="#444">Both screens run from 3V3. All grounds are joined. Full pin table: docs/WIRING.md</text>
-  <text x="450" y="630" text-anchor="middle" font-size="13" fill="#444">SuperMini: same wiring using the [bracketed] pins, but no battery pads.</text>
+  <text x="450" y="630" text-anchor="middle" font-size="13" fill="#444">XIAO: same wiring using the [bracketed] pins.</text>
 </svg>

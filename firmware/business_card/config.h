@@ -6,9 +6,8 @@
 // ---------------------------------------------------------------------
 // 1. Which microcontroller board are you using?  Uncomment ONE line.
 // ---------------------------------------------------------------------
-#define BOARD_XIAO_ESP32C3           // Seeed XIAO ESP32-C3 - has a built-in
-                                     // LiPo charger (battery build) <- default
-// #define BOARD_ESP32C3_SUPERMINI   // cheapest (~£2), USB power only
+#define BOARD_ESP32C3_SUPERMINI      // cheapest (~£2) + TP4056 charger <- default
+// #define BOARD_XIAO_ESP32C3        // Seeed XIAO ESP32-C3 (~£6), charger built in
 
 // ---------------------------------------------------------------------
 // 2. Your details

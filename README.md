@@ -16,24 +16,24 @@ fits inside a credit card's footprint (85.6 × 54 mm).
  │ │  your photo  │        │   engineer :3    │ │
  │ │              │        └──────────────────┘ │
  │ │              │  ┌─┐   ┌──────────┐         │
- │ │              │  │◉│   │ XIAO C3  │▐ USB-C  │
+ │ │              │  │◉│   │SuperMini │▐ USB-C  │
  │ └──────────────┘  └─┘   └──────────┘         │
  └──────────────────[▐]─────────────────────────┘
-            button ◉    [▐] on/off switch    (LiPo on the back)
+            button ◉    [▐] on/off switch    (LiPo + charger on the back)
 ```
 
 ## Controls
 
 | Button | Does |
 |---|---|
-| **Tap** | Next scene: **photo + name** → **big QR code + "scan me"** → **info card + contact** → your other photos → back to the start |
+| **Tap** | Next scene: **photo + name** → **big QR code + "scan me"** → **info card + contact** → back to the start |
 | **Hold 1 s** | Both screens off, low-power sleep. Tap to wake |
 
 The slide switch on the edge cuts the battery completely.
 
 | | |
 |---|---|
-| **Cost** | about **£15** with battery, or **£7–9** USB-only ([BOM](docs/BOM.md)) |
+| **Cost** | about **£10** with battery, or **£7** USB-only ([BOM](docs/BOM.md)) |
 | **Size** | 70 × 50 mm, about 12–14 mm thick (credit card = 85.6 × 54 mm) |
 | **Battery** | 250 mAh LiPo, about 4 h with the screens on, charges over USB-C |
 | **Skill** | beginner soldering, about 2–3 hours |
@@ -53,16 +53,19 @@ The slide switch on the edge cuts the battery completely.
 
 | Part | Pick | Approx. price |
 |---|---|---|
-| Microcontroller | Seeed XIAO ESP32-C3 (built-in battery charger) | £5–6 |
+| Microcontroller | ESP32-C3 SuperMini | £2 |
 | Colour screen | 1.69" ST7789 240×280 SPI IPS, 8-pin | £3 |
 | Info screen | 0.96" SSD1306 128×64 I2C OLED, 4-pin (yellow/blue) | £1.50 |
-| Battery | 3.7 V LiPo 250 mAh, flat (302030) | £2–3 |
-| Button + switch | 6×6 mm tactile button, SS12D00 slide switch | £0.20 |
+| Battery | 3.7 V LiPo 250 mAh, flat (302030) | £2 |
+| Charger | TP4056 USB-C module with protection, plus a 1N5817 diode | £0.40 |
+| Button + switch | 6×6 mm tactile button, SS12D00 slide switch | £0.10 |
 | Board | 5×7 cm double-sided perfboard | £0.30 |
 | Wire + headers | 30 AWG wire-wrap wire, pin headers | £0.50 |
 
-**Cheaper (~£7–9):** use an ESP32-C3 SuperMini and skip the battery. It
+**Even cheaper (~£7):** skip the battery, charger, diode and switch. It
 then runs only while plugged in over USB-C, but the button still works.
+**Easier (~£14):** use a Seeed XIAO ESP32-C3, which has the charger built
+in.
 Full details: **[docs/BOM.md](docs/BOM.md)**.
 
 ## Firmware
@@ -84,7 +87,7 @@ Full details: **[docs/BOM.md](docs/BOM.md)**.
 Open `firmware/business_card/business_card.ino`. Then, in the
 `config.h` tab:
 
-- pick your board (`BOARD_XIAO_ESP32C3`, the default, or `BOARD_ESP32C3_SUPERMINI`)
+- pick your board (`BOARD_ESP32C3_SUPERMINI`, the default, or `BOARD_XIAO_ESP32C3`)
 - fill in your name, title, email and website
 - optional: set `AUTO_ADVANCE_MS` to make it also change scene by itself
 
@@ -96,8 +99,8 @@ python3 tools/make_assets.py --photo me.jpg --qr https://github.com/yourname
 ```
 
 This creates `photo.h` and `qr.h` inside `firmware/business_card/`. The
-photo is cropped and resized for you. Give `--photo` several files for a
-slideshow. Without these files the card shows a gradient with your
+photo is cropped and resized for you. Without these files the card shows
+a gradient with your
 initials instead.
 
 > `photo.h` and `qr.h` are listed in `.gitignore`, so your photo doesn't end
@@ -105,10 +108,11 @@ initials instead.
 
 ### 4. Flash it
 
-1. Plug the board in with a USB-C **data** cable.
+1. Plug the **SuperMini's** USB-C (not the charger's) into your computer
+   with a USB-C **data** cable.
 2. Choose **Tools → Board**:
-   - XIAO: **XIAO_ESP32C3**
    - SuperMini: **ESP32C3 Dev Module**, then set **USB CDC On Boot → Enabled**
+   - XIAO: **XIAO_ESP32C3**
 3. Choose the port and click **Upload**. Make sure the card is **awake**:
    while it's asleep (after holding the button), USB uploads won't connect.
 4. If the upload won't start, hold **BOOT**, tap **RESET**, release **BOOT**,

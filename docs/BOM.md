@@ -4,27 +4,41 @@ Prices are rough AliExpress / eBay figures in GBP (late 2026), including cheap
 shipping. Amazon usually costs 2–3× more but arrives the next day. The search
 terms are what to type into AliExpress.
 
-## Main build: battery + button (~£15–17)
+## Main build: battery + button (~£10)
 
 | # | Part | Qty | Search term | Approx. | Notes |
 |---|---|---|---|---|---|
-| 1 | Seeed Studio XIAO ESP32-C3 | 1 | `Seeed XIAO ESP32C3` | £5–6 | Has a **built-in LiPo charger** and battery pads underneath |
+| 1 | ESP32-C3 SuperMini | 1 | `ESP32-C3 SuperMini` | £1.50–2.50 | Usually sold in packs of 3 for even less each |
 | 2 | 1.69" IPS TFT, ST7789, 240×280, SPI | 1 | `1.69 inch TFT ST7789 240x280` | £2.50–3.50 | Make sure it has the **8-pin** header `GND VCC SCL SDA RES DC CS BLK` |
-| 3 | 0.96" OLED, SSD1306, I2C | 1 | `0.96 OLED I2C SSD1306 yellow blue` | £1.20–2.00 | **4-pin** version `GND VCC SCL SDA`. Yellow/blue matches the video |
-| 4 | 3.7 V LiPo, ~250 mAh, flat | 1 | `302030 lipo 3.7v` (or `402030`) | £2–3 | 3 × 20 × 30 mm. Get one with a **protection circuit** (most have one), JST plug optional |
-| 5 | Mini slide switch, 3-pin, 2.54 mm pitch | 1 | `SS12D00G3 slide switch` | £0.10 | Battery on/off. Usually sold in packs of 20–50 |
-| 6 | Tactile push button 6×6 mm | 1 | `6x6 tactile switch 4.3mm` | £0.05 | The 4.3 mm height sits nice and flat. Usually sold in packs of 50–100 |
-| 7 | Double-sided perfboard 5×7 cm | 1 | `5x7cm double sided prototype PCB` | £0.20 | Usually sold in packs of 10 for about £2 |
-| 8 | Wire | ~1 m | `30AWG wire wrap wire` | £0.30 | Thin wire keeps the back flat for the battery |
-| 9 | Kapton or electrical tape | a bit | `kapton tape` | £1 | Insulates the back wiring from the battery |
-| | **Total** | | | **≈ £13–17** | |
+| 3 | 0.96" OLED, SSD1306, I2C | 1 | `0.96 OLED I2C SSD1306` | £1.20–2.00 | **4-pin** version `GND VCC SCL SDA`. Yellow/blue matches the video, plain white is often cheaper |
+| 4 | 3.7 V LiPo, ~250 mAh, flat | 1 | `302030 lipo 3.7v` | £1.50–2.50 | 3 × 20 × 30 mm. Get one **with a protection circuit** |
+| 5 | TP4056 USB-C charger module **with protection** | 1 | `TP4056 type-c protection` | £0.30–0.50 | The version with **6 pads** (B+ B− OUT+ OUT− IN+ IN−) and two little chips. Usually sold in packs of 5–10 |
+| 6 | Schottky diode 1N5817 (or 1N5819) | 1 | `1N5817` | £0.02 | Stops USB power flowing back into the battery |
+| 7 | Mini slide switch, 3-pin, 2.54 mm pitch | 1 | `SS12D00G3 slide switch` | £0.05 | Battery on/off |
+| 8 | Tactile push button 6×6 mm | 1 | `6x6 tactile switch 4.3mm` | £0.03 | Changes scenes and sleeps |
+| 9 | Double-sided perfboard 5×7 cm | 1 | `5x7cm double sided prototype PCB` | £0.20 | Usually sold in packs of 10 for about £2 |
+| 10 | Wire | ~1 m | `30AWG wire wrap wire` | £0.30 | Thin wire keeps the back flat for the battery |
+| 11 | Kapton or electrical tape | a bit | `kapton tape` | £0.50 | Insulates the back wiring from the battery |
+| | **Total** | | | **≈ £9–11** | |
 
-## Cheapest build: USB power only (~£7–9)
+## Ways to make it even cheaper
 
-Swap the XIAO for an **ESP32-C3 SuperMini** (`ESP32-C3 SuperMini`, about
-£2) and skip parts 4, 5 and 9. The button still works. The SuperMini has
-no battery charger, so it runs only while plugged in (a phone, power bank
-or charger). Set `BOARD_ESP32C3_SUPERMINI` in `config.h`.
+- **No battery (~£7):** skip parts 4, 5, 6, 7 and 11. The card then runs
+  whenever it's plugged into USB-C (a phone, power bank or charger). The
+  button still works.
+- **Buy in packs and make 2–3:** the SuperMini, perfboard, switches,
+  buttons, diodes and TP4056 are all cheapest in packs. With friends, each
+  card costs about £7–8 *with* a battery.
+- **Use a white OLED** instead of yellow/blue: it's often £0.30 cheaper.
+- **Use AliExpress "Choice" / bundle deals:** shipping is free over about
+  £10, so order everything from Choice sellers in one basket.
+
+## Easier but pricier option: Seeed XIAO ESP32-C3 (+£4)
+
+The XIAO (`Seeed XIAO ESP32C3`, about £5–6) has a battery charger built
+in, so you can skip the TP4056 and the diode and charge through the same
+USB-C you program with. Set `BOARD_XIAO_ESP32C3` in `config.h`. It's
+neater, but the total comes to about £14.
 
 ## Tools
 
@@ -37,18 +51,17 @@ or charger). Set `BOARD_ESP32C3_SUPERMINI` in `config.h`.
 
 | State | Current | 250 mAh lasts |
 |---|---|---|
-| Screens on, brightness 180 | ~50–60 mA | ~4 hours |
-| Screens on, brightness 80 | ~40 mA | ~6 hours |
+| Screens on, brightness 180 | ~50–60 mA | ~3–4 hours |
+| Screens on, brightness 80 | ~40 mA | ~5 hours |
 | Asleep (hold button) | ~1–2 mA | days |
 | Slide switch off | 0 | months |
 
-Plugging in USB-C charges the battery while the switch is **on**. The
-XIAO's charge LED lights up while charging.
-
 ## Why these parts?
 
-- **ESP32-C3:** has 4 MB of flash (about 6 full-screen photos), native
-  USB-C and fast SPI. On the XIAO, the LiPo charger is free.
+- **ESP32-C3 SuperMini:** cheaper than an Arduino Nano, but with 4 MB of
+  flash for a full-screen photo, native USB-C and fast SPI.
+- **TP4056 with protection:** safely charges the LiPo from USB-C and cuts
+  it off before it over-discharges.
 - **Two separate screens:** the colour TFT uses SPI and the OLED uses I2C,
   so they're on different buses and don't fight over pins.
 - **5×7 cm perfboard:** at 70 × 50 mm it's already smaller than a credit
