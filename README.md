@@ -2,8 +2,9 @@
 
 A cheap DIY electronic business card built on perfboard: a **colour screen
 showing your photo** next to a **small OLED with your name, email and a
-QR code**, driven by an ESP32-C3. It runs from USB-C and fits inside a
-credit card's footprint (85.6 × 54 mm).
+QR code**, driven by an ESP32-C3. A **button** flips between scenes, and a small
+**rechargeable battery** on the back means it works without a cable. It
+fits inside a credit card's footprint (85.6 × 54 mm).
 
 ```
             70 mm (5×7 cm perfboard)
@@ -14,16 +15,27 @@ credit card's footprint (85.6 × 54 mm).
  │ │   1.69" TFT  │        │   Your Name      │ │
  │ │  your photo  │        │   engineer :3    │ │
  │ │              │        └──────────────────┘ │
- │ │              │        ┌──────────┐         │
- │ │              │        │ ESP32-C3 │▐ USB-C  │
- │ └──────────────┘        └──────────┘         │
- └──────────────────────────────────────────────┘
+ │ │              │  ┌─┐   ┌──────────┐         │
+ │ │              │  │◉│   │ XIAO C3  │▐ USB-C  │
+ │ └──────────────┘  └─┘   └──────────┘         │
+ └──────────────────[▐]─────────────────────────┘
+            button ◉    [▐] on/off switch    (LiPo on the back)
 ```
+
+## Controls
+
+| Button | Does |
+|---|---|
+| **Tap** | Next scene: **photo + name** → **big QR code + "scan me"** → **info card + contact** → your other photos → back to the start |
+| **Hold 1 s** | Both screens off, low-power sleep. Tap to wake |
+
+The slide switch on the edge cuts the battery completely.
 
 | | |
 |---|---|
-| **Cost** | about **£7–9** for the budget build ([BOM](docs/BOM.md)) |
-| **Size** | 70 × 50 mm, about 12 mm thick (credit card = 85.6 × 54 mm) |
+| **Cost** | about **£15** with battery, or **£7–9** USB-only ([BOM](docs/BOM.md)) |
+| **Size** | 70 × 50 mm, about 12–14 mm thick (credit card = 85.6 × 54 mm) |
+| **Battery** | 250 mAh LiPo, about 4 h with the screens on, charges over USB-C |
 | **Skill** | beginner soldering, about 2–3 hours |
 | **Software** | Arduino IDE, plus a small Python script for your photo |
 
@@ -39,15 +51,19 @@ credit card's footprint (85.6 × 54 mm).
 
 ## Parts (short version)
 
-| Part | Budget pick | Approx. price |
+| Part | Pick | Approx. price |
 |---|---|---|
-| Microcontroller | ESP32-C3 SuperMini (or Seeed XIAO ESP32-C3) | £2 (XIAO £5–6) |
+| Microcontroller | Seeed XIAO ESP32-C3 (built-in battery charger) | £5–6 |
 | Colour screen | 1.69" ST7789 240×280 SPI IPS, 8-pin | £3 |
 | Info screen | 0.96" SSD1306 128×64 I2C OLED, 4-pin (yellow/blue) | £1.50 |
+| Battery | 3.7 V LiPo 250 mAh, flat (302030) | £2–3 |
+| Button + switch | 6×6 mm tactile button, SS12D00 slide switch | £0.20 |
 | Board | 5×7 cm double-sided perfboard | £0.30 |
-| Wire + headers | 30 AWG wire-wrap or thin solid-core wire, pin headers | £0.50 |
+| Wire + headers | 30 AWG wire-wrap wire, pin headers | £0.50 |
 
-Full details, links and search terms: **[docs/BOM.md](docs/BOM.md)**.
+**Cheaper (~£7–9):** use an ESP32-C3 SuperMini and skip the battery. It
+then runs only while plugged in over USB-C, but the button still works.
+Full details: **[docs/BOM.md](docs/BOM.md)**.
 
 ## Firmware
 
@@ -68,8 +84,9 @@ Full details, links and search terms: **[docs/BOM.md](docs/BOM.md)**.
 Open `firmware/business_card/business_card.ino`. Then, in the
 `config.h` tab:
 
-- pick your board (`BOARD_ESP32C3_SUPERMINI` or `BOARD_XIAO_ESP32C3`)
+- pick your board (`BOARD_XIAO_ESP32C3`, the default, or `BOARD_ESP32C3_SUPERMINI`)
 - fill in your name, title, email and website
+- optional: set `AUTO_ADVANCE_MS` to make it also change scene by itself
 
 ### 3. Add your photo and QR code (optional, but that's the fun part)
 
@@ -90,19 +107,19 @@ initials instead.
 
 1. Plug the board in with a USB-C **data** cable.
 2. Choose **Tools → Board**:
-   - SuperMini: **ESP32C3 Dev Module**, then set **USB CDC On Boot → Enabled**
    - XIAO: **XIAO_ESP32C3**
-3. Choose the port and click **Upload**.
+   - SuperMini: **ESP32C3 Dev Module**, then set **USB CDC On Boot → Enabled**
+3. Choose the port and click **Upload**. Make sure the card is **awake**:
+   while it's asleep (after holding the button), USB uploads won't connect.
 4. If the upload won't start, hold **BOOT**, tap **RESET**, release **BOOT**,
    then upload again.
 
 ## Make it yours
 
-- **Battery:** the XIAO ESP32-C3 has battery pads and a LiPo charger on its
-  underside. Add a 3.7 V 150–300 mAh LiPo (about 30 × 20 × 5 mm) to the back
-  with a slide switch. The SuperMini has no charger, so power it from a phone
-  or power bank, or add a TP4056 module.
 - **Different screens:** for a 1.54" 240×240 screen, set `TFT_HEIGHT 240` and
   run the script with `--height 240`.
-- **Pages:** each OLED page is one small function in `business_card.ino`
-  (`pageMain`, `pageQr`, `pageContact`). Add your own to the `pages[]` list.
+- **Scenes:** the list of scenes is built in `buildScenes()` in
+  `business_card.ino`. Add a new `SceneType`, draw it in `showScene()` and
+  `oledShow()`, and add it to the list.
+- **Brightness:** lower `TFT_BRIGHTNESS` in `config.h` for longer battery
+  life.

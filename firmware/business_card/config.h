@@ -6,11 +6,12 @@
 // ---------------------------------------------------------------------
 // 1. Which microcontroller board are you using?  Uncomment ONE line.
 // ---------------------------------------------------------------------
-#define BOARD_ESP32C3_SUPERMINI      // cheapest (~£2)  <- default
-// #define BOARD_XIAO_ESP32C3        // Seeed Studio XIAO ESP32-C3 (~£5-6)
+#define BOARD_XIAO_ESP32C3           // Seeed XIAO ESP32-C3 - has a built-in
+                                     // LiPo charger (battery build) <- default
+// #define BOARD_ESP32C3_SUPERMINI   // cheapest (~£2), USB power only
 
 // ---------------------------------------------------------------------
-// 2. Your details (shown on the small OLED screen)
+// 2. Your details
 // ---------------------------------------------------------------------
 #define CARD_NAME     "Your Name"
 #define CARD_TITLE    "engineer :3"
@@ -29,11 +30,12 @@
 #define TFT_HEIGHT  280
 
 // ---------------------------------------------------------------------
-// 4. Timing and brightness
+// 4. Button, timing and brightness
 // ---------------------------------------------------------------------
-#define OLED_PAGE_MS     4000   // how long each OLED page stays up
-#define PHOTO_MS         6000   // slideshow speed (only if >1 photo)
-#define TFT_BRIGHTNESS   200    // 0-255 backlight brightness
+#define LONG_PRESS_MS    1000   // hold this long to switch the screens off
+#define AUTO_ADVANCE_MS  0      // 0 = only change on button press,
+                                // e.g. 8000 = also change every 8 seconds
+#define TFT_BRIGHTNESS   180    // 0-255 backlight (lower = longer battery)
 #define TFT_SPI_HZ       40000000UL  // drop to 20000000UL if the picture glitches
 
 // ---------------------------------------------------------------------
@@ -50,6 +52,7 @@
   #define TFT_BLK    5    // D3
   #define OLED_SDA   6    // D4
   #define OLED_SCL   7    // D5
+  #define BTN_PIN   20    // D7  (other button leg -> GND)
 #elif defined(BOARD_ESP32C3_SUPERMINI)
   #define TFT_SCK    4
   #define TFT_MOSI   6
@@ -59,6 +62,7 @@
   #define TFT_BLK    3
   #define OLED_SDA   8
   #define OLED_SCL   9
+  #define BTN_PIN    5    // other button leg -> GND
 #else
   #error "Pick a board at the top of config.h"
 #endif

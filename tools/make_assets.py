@@ -65,8 +65,8 @@ def make_qr(data, out):
     qr.make(fit=True)
     m = qr.get_matrix()
     n = len(m)
-    if n > 30:
-        print(f"WARNING: QR is {n}x{n} modules - too dense to scan on a 64px OLED. "
+    if n > 50:
+        print(f"WARNING: QR is {n}x{n} modules - too dense to scan easily. "
               "Use a shorter link (e.g. a link shortener).")
     row_bytes = (n + 7) // 8
     data_bytes = []

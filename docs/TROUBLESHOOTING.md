@@ -13,3 +13,9 @@
 | QR won't scan | Use a shorter link (a link shortener or a short domain). Aim for 25 modules or fewer. The script warns if the code is too dense |
 | `photo.h` too big / sketch won't fit | Use fewer photos (each one is about 134 KB). Or choose **Tools → Partition Scheme → Huge APP** |
 | Compile error about `__has_include` | Update the ESP32 board package to 2.0.x or newer (3.x recommended) |
+| Button does nothing | Check that the button goes from the button pin to **GND**. Wire it across opposite corners: the legs on the same long side are connected internally |
+| Screens off and won't come back | It's asleep. Tap the button. If that doesn't work, press RESET or turn the switch off and on |
+| Upload fails while the card is asleep | Wake it first (tap), or hold BOOT + tap RESET to enter upload mode |
+| Won't run on battery | Is the switch on? Check the battery polarity (red → BAT+) and measure the battery: it should read 3.3–4.2 V. A flat LiPo needs about an hour on USB |
+| Charge LED flickers with no battery | Normal on the XIAO when no battery is connected |
+| Battery gets hot or puffy | **Unplug and disconnect it right away.** Check for shorts and reversed polarity. Never use a swollen LiPo |
