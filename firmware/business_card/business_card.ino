@@ -155,7 +155,7 @@ void tftHelp() {
 
 // -------------------------------------------------------------- OLED
 // Yellow/blue OLEDs: the top 16 pixel rows are yellow, the rest blue.
-void oledCenter(const char *s, int y, uint8_t size) {
+void oledLine(const char *s, int y, uint8_t size) {
   int16_t x1, y1; uint16_t w, h;
   do {
     oled.setTextSize(size);
@@ -163,6 +163,24 @@ void oledCenter(const char *s, int y, uint8_t size) {
   } while (w > 126 && --size > 1);
   oled.setCursor((128 - (int)w) / 2, y);
   oled.print(s);
+}
+
+// Centred text; too long even at the smallest size (e.g. a long email)
+// -> split into two lines at the '@', '/', '.' or space nearest the middle.
+void oledCenter(const char *s, int y, uint8_t size) {
+  oled.setTextWrap(false);
+  const int len = strlen(s);
+  if (len * 6 <= 126) { oledLine(s, y, size); return; }
+  int cut = -1;
+  for (int d = 0; d < len / 2 && cut < 0; d++)
+    for (int i : { len / 2 - d, len / 2 + d })
+      if (i > 0 && i < len && strchr("@/. ", s[i])) { cut = i; break; }
+  if (cut < 0) cut = len / 2;
+  char a[64], b[64];
+  snprintf(a, sizeof(a), "%.*s", cut, s);
+  snprintf(b, sizeof(b), "%s", s + cut);
+  oledLine(a, y - 4, 1);
+  oledLine(b, y + 5, 1);
 }
 
 void oledDots() {               // little "which scene am I on" dots
