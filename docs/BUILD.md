@@ -2,61 +2,37 @@
 
 ## Perfboard layout
 
+![perfboard layout, front and back](layout.svg)
+
 The board is a 5×7 cm perfboard (24 × 18 holes, 2.54 mm pitch) used in
 landscape. The screens, SuperMini, button and switch go on the **front**.
 The wires run on the **back**, with the battery and the TP4056 charger stuck
 flat on top of them (insulated with tape).
 
-### Front
+The diagram shows both sides. The **back view is mirrored**, as if you'd
+turned the board over, so it matches what you see while soldering. Every
+wire is numbered: tick them off in the wire list as you go.
 
-```
- col: 1         5        10        15        20      24
- row ┌────────────────────────────────────────────────┐
-  1  │ ○ ● ● ● ● ● ● ● ●  ○ ○ ○ ○  ● ● ● ●  ○ ○ ○ ○ ○ ○ │  ● = header pins
-  2  │ ┌───────────────┐          ┌──────────────┐      │
-  3  │ │               │          │              │      │
-  4  │ │               │          │  0.96" OLED  │      │
-  5  │ │               │          │  (27×27 mm)  │      │
-  6  │ │   1.69" TFT   │          │              │      │
-  7  │ │  (≈31×38 mm)  │          │              │      │
-  8  │ │               │          └──────────────┘      │
-  9  │ │               │                                │
- 10  │ │               │   ┌───┐ ┌──────────────────┐   │
- 11  │ │               │   │ ◉ │ │                  │   │
- 12  │ │               │   └───┘ │  C3 SuperMini    │══ USB-C (sticks out
- 13  │ │               │  button │  lying sideways  │   │    of the right edge)
- 14  │ │               │         │                  │   │
- 15  │ └───────────────┘         └──────────────────┘   │
- 16  │                    ┌──┐                          │
- 17  │                    │▐ │ slide switch             │
- 18  └────────────────────┴──┴──────────────────────────┘
-                     lever pokes out of the bottom edge
-```
+Hole positions are given as (column, row) **seen from the front**:
 
-### Back
-
-```
- ┌────────────────────────────────────────────────┐
- │  wires (30 AWG) ...  covered with kapton tape  │
- │  ┌──────────────────────┐                      │
- │  │ LiPo 302030 (3×20×30)│   ┌───────────────┐  │
- │  │ foam tape            │   │ TP4056 module │══ USB-C (charging,
- │  └──────────────────────┘   └───────────────┘  │    over the edge)
- └────────────────────────────────────────────────┘
-   (seen from the back, so the left/right sides are flipped)
-```
-
-- **TFT:** 8-pin header along row 1, columns 2–9. Put a strip of foam tape
+- **TFT:** 8-pin header in row 1, columns 3–10. Put a strip of foam tape
   under the bottom edge of the screen module so it doesn't wobble.
-- **OLED:** 4-pin header in row 1, columns 15–18.
-- **SuperMini:** lying sideways in the bottom right with USB-C over the
-  right edge, for programming.
-- **Button:** between the TFT and the SuperMini, where your thumb lands.
-- **TP4056 (back):** with its USB-C port over the other edge, so the two
-  USB-C ports are easy to tell apart (charging vs programming).
-- **Slide switch:** on the bottom edge, with the lever pointing outwards.
-- Module sizes vary a little between sellers. Lay everything out
-  **before** soldering and adjust.
+- **OLED:** 4-pin header in row 1, columns 17–20.
+- **SuperMini:** lying sideways in the bottom right, with pins in rows 12
+  and 18, columns 16–23. Its USB-C hangs over the right edge, for
+  programming.
+- **Button:** legs at columns 13 and 15, rows 13 and 15, in the gap between
+  the TFT and the SuperMini.
+- **Slide switch:** row 18, columns 5–7, with the lever sticking out of the
+  bottom edge.
+- **TP4056 (back):** under the TFT, with its USB-C over the left edge (as
+  seen from the front), so the two USB-C ports are easy to tell apart
+  (charging vs programming).
+- **LiPo (back):** under the OLED, fitted last, on kapton tape.
+- Module sizes vary a little between sellers. The diagram assumes a
+  30 × 37 mm TFT board, a 27 × 27 mm OLED board and a 22.5 × 18 mm
+  SuperMini. Lay everything out **before** soldering, and move a part by a
+  hole if it doesn't fit.
 
 ## Step by step
 

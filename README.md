@@ -44,11 +44,13 @@ The slide switch on the edge cuts the battery completely.
 
 1. [Parts list and prices](docs/BOM.md) · **[Shopping list with buy links](docs/BUY.md)**
 2. [Wiring](docs/WIRING.md) ([diagram](docs/wiring.svg))
-3. [Perfboard layout and build steps](docs/BUILD.md)
+3. [Perfboard layout and build steps](docs/BUILD.md) ([front + back diagram](docs/layout.svg))
 4. [Firmware: install, customise and flash](#firmware)
 5. [Troubleshooting](docs/TROUBLESHOOTING.md)
 
 ![wiring](docs/wiring.svg)
+
+![perfboard layout, front and back](docs/layout.svg)
 
 ## Parts (short version)
 

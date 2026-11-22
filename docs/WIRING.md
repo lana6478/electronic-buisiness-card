@@ -2,6 +2,9 @@
 
 ![wiring diagram](wiring.svg)
 
+Where each wire goes on the perfboard (front and mirrored back view):
+[layout.svg](layout.svg).
+
 Every connection, for both supported boards. **GPIO numbers are what the
 firmware uses** (see `firmware/business_card/config.h`).
 
