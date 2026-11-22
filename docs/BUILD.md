@@ -4,35 +4,38 @@
 
 ![perfboard layout, front and back](layout.svg)
 
-The board is a 5×7 cm perfboard (24 × 18 holes, 2.54 mm pitch) used in
-landscape. The screens, SuperMini, button and switch go on the **front**.
-The wires run on the **back**, with the battery and the TP4056 charger stuck
-flat on top of them (insulated with tape).
+The layout is drawn for a **33 × 19 hole** perfboard (numbers 1–33 along
+the long edge, letters A–S across the short edge, with a strip of long pads
+beyond row A), about the size of a credit card. Hold it with **row S at the
+top** and the long pads at the bottom. Both screens are then the right way
+up. The screens, SuperMini and button go on the **front**. The wires run on
+the **back**, with the battery and the TP4056 charger stuck flat on top of
+them (insulated with tape).
 
 The diagram shows both sides. The **back view is mirrored**, as if you'd
 turned the board over, so it matches what you see while soldering. Every
-wire is numbered: tick them off in the wire list as you go.
+wire is numbered, and the wire list gives the holes at both ends: tick them
+off as you go.
 
-Hole positions are given as (column, row) **seen from the front**:
+Hole names are letter + number, as printed on the board:
 
-- **TFT:** 8-pin header in row 1, columns 3–10. Put a strip of foam tape
-  under the bottom edge of the screen module so it doesn't wobble.
-- **OLED:** 4-pin header in row 1, columns 17–20.
-- **SuperMini:** lying sideways in the bottom right, with pins in rows 12
-  and 18, columns 16–23. Its USB-C hangs over the right edge, for
-  programming.
-- **Button:** legs at columns 13 and 15, rows 13 and 15, in the gap between
-  the TFT and the SuperMini.
-- **Slide switch:** row 18, columns 5–7, with the lever sticking out of the
-  bottom edge.
-- **TP4056 (back):** under the TFT, with its USB-C over the left edge (as
-  seen from the front), so the two USB-C ports are easy to tell apart
-  (charging vs programming).
-- **LiPo (back):** under the OLED, fitted last, on kapton tape.
-- Module sizes vary a little between sellers. The diagram assumes a
-  30 × 37 mm TFT board, a 27 × 27 mm OLED board and a 22.5 × 18 mm
-  SuperMini. Lay everything out **before** soldering, and move a part by a
-  hole if it doesn't fit.
+- **TFT:** 8-pin header in **S4–S11** (GND at S4, BLK at S11). The screen
+  covers the left part of the board. Put a strip of foam tape under the
+  far edge of the module so it doesn't wobble.
+- **SuperMini:** between the screens, with its USB-C over the top edge for
+  programming. Its pins are in **columns 16 and 22, rows R to K**: 5V at R16
+  and GPIO5 at R22.
+- **OLED:** 4-pin header in **S27–S30** (GND, VDD, SCK, SDA).
+- **Button:** below the SuperMini, legs in F18, F20, C18 and C20.
+- **Slide switch:** on the right edge in E33, D33 and C33, lever sticking
+  out sideways.
+- **TP4056 (back):** behind the button area, with its USB-C over the
+  bottom edge, so the two USB-C ports are easy to tell apart (charging vs
+  programming).
+- **LiPo (back):** behind the TFT, fitted last, on kapton tape.
+- **Check the pin printing on your own boards** before soldering. If your
+  TFT's pins run the other way (BLK at S4), or your SuperMini has 5V
+  somewhere else, wire by the names, not the hole positions.
 
 ## Step by step
 

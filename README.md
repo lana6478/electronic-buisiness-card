@@ -7,19 +7,20 @@ QR code**, driven by an ESP32-C3. A **button** flips between scenes, and a small
 fits inside a credit card's footprint (85.6 × 54 mm).
 
 ```
-            70 mm (5×7 cm perfboard)
- ┌──────────────────────────────────────────────┐
- │ GND VCC SCL SDA RES DC CS BLK   GND VCC SCL SDA│
- │ ┌──────────────┐        ┌──────────────────┐ │
- │ │              │        │ you@email.com    │ │  50 mm
- │ │   1.69" TFT  │        │   Your Name      │ │
- │ │  your photo  │        │   engineer :3    │ │
- │ │              │        └──────────────────┘ │
- │ │              │  ┌─┐   ┌──────────┐         │
- │ │              │  │◉│   │SuperMini │▐ USB-C  │
- │ └──────────────┘  └─┘   └──────────┘         │
- └──────────────────[▐]─────────────────────────┘
-            button ◉    [▐] on/off switch    (LiPo + charger on the back)
+                      33 holes (about 86 mm)
+  ┌─────────────────────────────────────────────────────────┐
+  │ TFT pins S4–S11      [USB-C]         OLED pins S27–S30   │
+  │ ┌─────────────┐   ┌───────────┐   ┌──────────────────┐   │
+  │ │             │   │ SuperMini │   │ you@email.com    │   │
+  │ │  1.69" TFT  │   │           │   │   Your Name      │   │  19 holes
+  │ │ your photo  │   └───────────┘   │   engineer :3    │   │  (A–S)
+  │ │             │                   └──────────────────┘   │
+  │ │             │       ┌─┐                              ▐ │◀ on/off
+  │ │             │       │◉│ button                         │  switch
+  │ └─────────────┘       └─┘                                │
+  │ ▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯ long pads ▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯ │
+  └─────────────────────────────────────────────────────────┘
+          (LiPo + TP4056 charger on the back)
 ```
 
 ## Controls
@@ -35,7 +36,7 @@ The slide switch on the edge cuts the battery completely.
 | | |
 |---|---|
 | **Cost** | about **£10** with battery, or **£7** USB-only ([BOM](docs/BOM.md)) |
-| **Size** | 70 × 50 mm, about 12–14 mm thick (credit card = 85.6 × 54 mm) |
+| **Size** | 33 × 19 hole perfboard, about credit-card size (85.6 × 54 mm), 12–14 mm thick |
 | **Battery** | 250 mAh LiPo, about 4 h with the screens on, charges over USB-C |
 | **Skill** | beginner soldering, about 2–3 hours |
 | **Software** | Arduino IDE, plus a small Python script for your photo |
