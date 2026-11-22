@@ -7,10 +7,15 @@ The board is 33 x 19 holes (numbers 1-33 along the long edge, letters A-S
 across the short edge), with a strip of long pads beyond row A. It's drawn
 with the S edge (where the screen header pins are) at the top.
 
+With --straight, the back view routes every wire along the gaps between the
+holes, using only straight lines and 90 degree turns (docs/layout-straight.svg).
+
 Positions in this file are (number, row) seen from the FRONT, where row 1 is
 letter S and row 19 is letter A. No extra libraries needed.
 """
-import math, sys
+import heapq, math, sys
+
+STRAIGHT = "--straight" in sys.argv   # wires as straight lines with 90 degree turns
 
 P = 26                 # px per hole
 NC, NR = 33, 19        # numbers, letters
@@ -62,9 +67,9 @@ ALL_PINS = list(TFT.values()) + list(OLED.values()) + list(MCU.values()) + list(
 # on the back (front coords)
 TP = (23.6, 30.4, 10.6, 19.9)          # c1 c2 r1 r2, USB-C at the bottom end
 TP_USB = (25.6, 28.4, 19.0, 21.2)
-TP_PADS = {"OUT+": (24.3, 11.3), "B+": (26.1, 11.3), "B-": (27.9, 11.3), "OUT-": (29.7, 11.3)}
+TP_PADS = {"OUT+": (24.5, 11.5), "B+": (26.0, 11.5), "B-": (28.0, 11.5), "OUT-": (29.5, 11.5)}
 BAT = (1.6, 13.4, 3.0, 11.0)
-BAT_LEADS = {"red": (13.4, 6.4), "black": (13.4, 7.6)}
+BAT_LEADS = {"red": (13.5, 6.5), "black": (13.5, 7.5)}
 
 GND_C, V33_C, V5_C = "#111111", "#e63946", "#f77f00"
 G_PWR, G_SIG, G_BAT = "Power (3V3 + GND)", "Screen + button signals", "Battery (do last)"
@@ -120,6 +125,107 @@ def pick_bend(a, b):
             return k
     return 0
 
+
+# ---------------------------------------------------------------- straight (90 degree) router
+def route_straight(wires):
+    """Try several routing orders and keep the tidiest result."""
+    import random
+    rnd = random.Random(7)
+    base = sorted(wires, key=lambda w: -(abs(w[1][0] - w[2][0]) + abs(w[1][1] - w[2][1])))
+    orders = [base, base[::-1]] + [rnd.sample(base, len(base)) for _ in range(60)]
+    best = None
+    for order in orders:
+        res = _route_order(order)
+        if res is None:
+            continue
+        paths, score = res
+        if best is None or score < best[0]:
+            best = (score, paths)
+    if best is None:
+        raise SystemExit("could not route the wires")
+    return best[1]
+
+def _route_order(order):
+    """Route each wire on a half-hole grid: straight lines, 90 degree turns,
+    never on top of another wire, only crossing it at right angles."""
+    def h(pt): return (round(pt[0] * 2), round(pt[1] * 2))
+    pins = {h(q) for q in ALL_PINS} | {h(q) for q in TP_PADS.values()} | {h(q) for q in BAT_LEADS.values()}
+    xmin, xmax, ymin, ymax = 1, NC * 2 + 1, 1, NR * 2 + 1
+    near = {}                                   # the 4 spots around each pin are only for its own wires
+    for q in pins:
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            near.setdefault((q[0] + dx, q[1] + dy), set()).add(q)
+    used_edges, used_nodes = set(), {}          # node -> set of "H"/"V"
+    paths = {}
+    score = 0
+    for (n, a, b, *_rest) in order:
+        S, G = h(a), h(b)
+        start = (0, 0, S, None)
+        best = {(S, None): 0}
+        prev = {}
+        pq = [start]
+        tie = 0
+        found = None
+        while pq:
+            cost, _, node, d0 = heapq.heappop(pq)
+            if node == G:
+                found = (node, d0); break
+            if cost > best.get((node, d0), 1e9):
+                continue
+            for d, (dx, dy) in (("H", (1, 0)), ("H", (-1, 0)), ("V", (0, 1)), ("V", (0, -1))):
+                m = (node[0] + dx, node[1] + dy)
+                if not (xmin <= m[0] <= xmax and ymin <= m[1] <= ymax):
+                    continue
+                if m in pins and m != G:
+                    continue
+                if m in near and not (near[m] & {S, G}):
+                    continue
+                e = frozenset((node, m))
+                if e in used_edges:
+                    continue
+                turning = d0 is not None and d != d0
+                if turning and node != S and used_nodes.get(node):
+                    continue                          # never turn on another wire
+                if d in used_nodes.get(m, ()):  # would run along another wire
+                    continue
+                c = cost + 1
+                if turning:
+                    c += 8
+                if used_nodes.get(m):
+                    c += 4                            # crossing
+                if m[0] % 2 == 0 and m[1] % 2 == 0 and m != G:
+                    c += 2                            # prefer the gaps between holes
+                key = (m, d)
+                if c < best.get(key, 1e9):
+                    best[key] = c
+                    prev[key] = (node, d0)
+                    tie += 1
+                    heapq.heappush(pq, (c, tie, m, d))
+        if not found:
+            return None
+        pts, key = [], found
+        while True:
+            pts.append(key[0])
+            if key not in prev:
+                break
+            key = prev[key]
+        pts.reverse()
+        for p1, p2 in zip(pts, pts[1:]):
+            used_edges.add(frozenset((p1, p2)))
+            d = "H" if p1[1] == p2[1] else "V"
+            for q in (p1, p2):
+                if q not in (S, G):
+                    used_nodes.setdefault(q, set()).add(d)
+        # keep only the corners
+        corners = [pts[0]]
+        for i in range(1, len(pts) - 1):
+            if (pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) != (pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]):
+                corners.append(pts[i])
+        corners.append(pts[-1])
+        paths[n] = [(x / 2, y / 2) for x, y in corners]
+        score += best[found] + 4 * len(corners)
+    return paths, score
+
 # ---------------------------------------------------------------- drawing helpers
 def board(view, by):
     add(f'<rect x="{BX - 0.3 * P:.1f}" y="{by - 0.25 * P:.1f}" width="{(NC + 0.6) * P:.1f}" height="{(NR + 1.55) * P:.1f}" rx="7" fill="#efe3c4" stroke="#8a7650" stroke-width="2"/>')
@@ -172,7 +278,7 @@ def mcu_body(view, by, ghost=False):
 # ================================================================= FRONT
 add(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} HEIGHT" font-family="Helvetica, Arial, sans-serif">')
 add(f'<rect width="{W}" height="HEIGHT" fill="#ffffff"/>')
-text(W / 2, 32, "Perfboard layout: ESP32-C3 SuperMini, 33 × 19 hole board", 22, "middle", "#222", "bold")
+text(W / 2, 32, "Perfboard layout: ESP32-C3 SuperMini, 33 × 19 hole board" + (" (straight wires)" if STRAIGHT else ""), 22, "middle", "#222", "bold")
 text(W / 2, 54, "Top: the front, where the parts go.  Bottom: the back, where you solder, flipped left-to-right like turning the board over.", 13, "middle", "#555")
 text(W / 2, 72, "Holes are named letter + number, like on the board: S4 = row S, column 4.", 13, "middle", "#555")
 
@@ -261,32 +367,52 @@ header_labels(TFT, "TFT pins: S4 – S11", v, BY)
 header_labels(OLED, "OLED pins: S27 – S30", v, BY)
 
 badge_pos, layers = [], []
+PATHS = route_straight(wires) if STRAIGHT else {}
+def place_badge(cands):
+    best = None
+    for p in cands:
+        score = min(min([math.dist(p, q) for q in badge_pos] + [9]), 1.6) + min(min(math.dist(p, q) for q in ALL_PINS), 0.8)
+        if best is None or score > best[0] + 1e-6:
+            best = (score, p)
+    return best[1]
 for (n, a, b, colr, label, group) in wires:
-    k = BEND.get(n, pick_bend(a, b))
-    c = control(a, b, k)
-    A = (X(a[0], v), Y(a[1], BY)); C = (X(c[0], v), Y(c[1], BY)); B = (X(b[0], v), Y(b[1], BY))
-    d = f"M{A[0]:.1f} {A[1]:.1f} Q{C[0]:.1f} {C[1]:.1f} {B[0]:.1f} {B[1]:.1f}"
-    add(f'<path d="{d}" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>'
-        f'<path d="{d}" stroke="{colr}" stroke-width="3.2" fill="none" stroke-linecap="round"/>')
-    if n == 15:
-        t = 0.8
+    if STRAIGHT:
+        pts = PATHS[n]
+        d = "M" + " L".join(f"{X(x, v):.1f} {Y(y, BY):.1f}" for x, y in pts)
+        segs = sorted(zip(pts, pts[1:]), key=lambda s_: -math.dist(*s_))
+        mids = [((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2) for p1, p2 in segs]
+        quarter = [(p1[0] + (p2[0] - p1[0]) * f, p1[1] + (p2[1] - p1[1]) * f) for p1, p2 in segs[:3] for f in (0.3, 0.7)]
+        if n == 15:
+            (p1, p2) = segs[0]
+            dp = mids[0]
+            ang = math.degrees(math.atan2(Y(p2[1], BY) - Y(p1[1], BY), X(p2[0], v) - X(p1[0], v)))
+            if math.dist(p2, b) > math.dist(p1, b):   # stripe must point towards 5V
+                ang += 180
+            badge_pos.append(dp)
+            layers.append(("diode", (X(dp[0], v), Y(dp[1], BY)), ang))
+            cands = mids[1:] + quarter
+        else:
+            cands = mids[:3] + quarter
+        p = place_badge(cands)
     else:
-        best = None
-        for t_ in [0.5, 0.4, 0.6, 0.3, 0.7, 0.25, 0.75, 0.35, 0.65]:
-            p = bez(a, c, b, t_)
-            score = min(min([math.dist(p, q) for q in badge_pos] + [9]), 1.6) + min(min(math.dist(p, q) for q in ALL_PINS), 0.8)
-            if best is None or score > best[0] + 1e-6:
-                best = (score, t_)
-        t = best[1]
-    p = bez(a, c, b, t)
+        k = BEND.get(n, pick_bend(a, b))
+        c = control(a, b, k)
+        A = (X(a[0], v), Y(a[1], BY)); C = (X(c[0], v), Y(c[1], BY)); B = (X(b[0], v), Y(b[1], BY))
+        d = f"M{A[0]:.1f} {A[1]:.1f} Q{C[0]:.1f} {C[1]:.1f} {B[0]:.1f} {B[1]:.1f}"
+        if n == 15:
+            p = bez(a, c, b, 0.8)
+        else:
+            p = place_badge([bez(a, c, b, t_) for t_ in [0.5, 0.4, 0.6, 0.3, 0.7, 0.25, 0.75, 0.35, 0.65]])
+        if n == 15:
+            q1, q2 = bez(a, c, b, 0.47), bez(a, c, b, 0.53)
+            ang = math.degrees(math.atan2(Y(q2[1], BY) - Y(q1[1], BY), X(q2[0], v) - X(q1[0], v)))
+            dp = bez(a, c, b, 0.5)
+            badge_pos.append(dp)
+            layers.append(("diode", (X(dp[0], v), Y(dp[1], BY)), ang))
+    add(f'<path d="{d}" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>'
+        f'<path d="{d}" stroke="{colr}" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
     badge_pos.append(p)
     layers.append(("badge", n, p, colr))
-    if n == 15:
-        q1, q2 = bez(a, c, b, 0.47), bez(a, c, b, 0.53)
-        ang = math.degrees(math.atan2(Y(q2[1], BY) - Y(q1[1], BY), X(q2[0], v) - X(q1[0], v)))
-        dp = bez(a, c, b, 0.5)
-        badge_pos.append(dp)
-        layers.append(("diode", (X(dp[0], v), Y(dp[1], BY)), ang))
 
 mcu_labels(v, BY, False)
 for lab, (c, r) in BTN.items():
@@ -301,8 +427,8 @@ text(X(33, v) + 10, Y(17, BY) + 4, "outer", 9, "start", "#333", halo=True)
 rect_cr(*TP, v, BY, rx=4, fill="none", stroke="#1d3557", stroke_width="2.2", stroke_dasharray="7 4")
 rect_cr(*TP_USB, v, BY, rx=3, fill="#c8c8c8", stroke="#666")
 mx = (X(TP[0], v) + X(TP[1], v)) / 2
-text(mx, Y(14.6, BY), "TP4056", 13, "middle", "#1d3557", "bold", halo=True)
-text(mx, Y(15.4, BY) + 2, "charger, foam-taped on", 9.5, "middle", "#1d3557", halo=True)
+text(mx, Y(13.6 if STRAIGHT else 14.6, BY), "TP4056", 13, "middle", "#1d3557", "bold", halo=True)
+text(mx, Y(14.4 if STRAIGHT else 15.4, BY) + 2, "charger, foam-taped on", 9.5, "middle", "#1d3557", halo=True)
 text(mx, Y(21.6, BY) + 8, "USB-C (charging) over the bottom edge", 10.5, "middle", "#1d3557", "bold")
 for name, (c, r) in TP_PADS.items():
     x, y = X(c, v), Y(r, BY)
@@ -322,8 +448,8 @@ for w in layers:
         pt = lambda u, w_: f"{dx + u * ca - w_ * sa:.1f},{dy + u * sa + w_ * ca:.1f}"
         add(f'<polygon points="{pt(-16,-7)} {pt(16,-7)} {pt(16,7)} {pt(-16,7)}" fill="#222" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>')
         add(f'<polygon points="{pt(8,-7)} {pt(13,-7)} {pt(13,7)} {pt(8,7)}" fill="#e6e6e6"/>')
-        text(dx, dy - 30, "1N5817 diode", 10.5, "middle", "#000", "bold", halo=True)
-        text(dx, dy - 17, "stripe end towards 5V", 10, "middle", "#000", halo=True)
+        text(dx, dy + (26 if STRAIGHT else -30), "1N5817 diode", 10.5, "middle", "#000", "bold", halo=True)
+        text(dx, dy + (39 if STRAIGHT else -17), "stripe end towards 5V", 10, "middle", "#000", halo=True)
 for w in layers:
     if w[0] == "badge":
         _, n, p, colr = w
@@ -360,7 +486,7 @@ text(BX, foot, "Seen from the back, the TFT is on the RIGHT and the OLED on the 
 text(BX, foot + 18, "Full pin table: WIRING.md", 12, "start", "#555")
 H = max(ly, foot + 18) + 30
 add("</svg>")
-open(sys.argv[1], "w").write("\n".join(out).replace("HEIGHT", str(int(H))))
-for (n, a, b, colr, label, g) in wires:
+open([x for x in sys.argv[1:] if not x.startswith("--")][0], "w").write("\n".join(out).replace("HEIGHT", str(int(H))))
+for (n, a, b, colr, label, g) in ([] if STRAIGHT else wires):
     k = BEND.get(n, pick_bend(a, b))
     print(n, label, "bend", k, "clear", round(clearance(a, b, k), 2))

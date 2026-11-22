@@ -4,6 +4,8 @@
 
 ![perfboard layout, front and back](layout.svg)
 
+Same layout, straight wires with 90° turns: [layout-straight.svg](layout-straight.svg).
+
 The layout is drawn for a **33 × 19 hole** perfboard (numbers 1–33 along
 the long edge, letters A–S across the short edge, with a strip of long pads
 beyond row A), about the size of a credit card. Hold it with **row S at the

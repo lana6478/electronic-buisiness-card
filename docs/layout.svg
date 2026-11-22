@@ -1569,25 +1569,25 @@
 <text x="0" y="0" transform="translate(159.0 843.1) rotate(-90)" font-size="10.5" text-anchor="start" font-weight="bold" fill="#222">SDA</text>
 <path d="M149.0 809.6 H239.0" stroke="#555" stroke-width="1.2"/>
 <text x="194.0" y="804.6" font-size="12" text-anchor="middle" font-weight="bold" fill="#222">OLED pins: S27 – S30</text>
-<path d="M831.0 868.6 Q683.5 945.9 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M831.0 868.6 Q683.5 945.9 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M805.0 868.6 Q669.5 935.2 519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M805.0 868.6 Q669.5 935.2 519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M233.0 868.6 Q379.7 874.1 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M233.0 868.6 Q379.7 874.1 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M207.0 868.6 Q350.4 958.0 519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M207.0 868.6 Q350.4 958.0 519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M467.0 1284.6 Q415.8 1091.6 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M467.0 1284.6 Q415.8 1091.6 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M779.0 868.6 Q653.8 932.7 519.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M779.0 868.6 Q653.8 932.7 519.0 972.6" stroke="#2a9d8f" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M753.0 868.6 Q558.0 894.6 363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M753.0 868.6 Q558.0 894.6 363.0 920.6" stroke="#3a86ff" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M727.0 868.6 Q623.0 959.6 519.0 1050.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M727.0 868.6 Q623.0 959.6 519.0 1050.6" stroke="#8338ec" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M701.0 868.6 Q537.4 958.4 363.0 1024.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M701.0 868.6 Q537.4 958.4 363.0 1024.6" stroke="#ff006e" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M675.0 868.6 Q531.6 958.0 363.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M675.0 868.6 Q531.6 958.0 363.0 946.6" stroke="#6c757d" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M649.0 868.6 Q584.0 933.6 519.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M649.0 868.6 Q584.0 933.6 519.0 998.6" stroke="#c9a227" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M181.0 868.6 Q272.0 933.6 363.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M181.0 868.6 Q272.0 933.6 363.0 998.6" stroke="#06a77d" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M155.0 868.6 Q259.0 920.6 363.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M155.0 868.6 Q259.0 920.6 363.0 972.6" stroke="#118ab2" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M415.0 1206.6 Q440.3 1042.1 363.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M415.0 1206.6 Q440.3 1042.1 363.0 894.6" stroke="#8d5524" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M77.0 1284.6 Q366.8 1167.6 519.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M77.0 1284.6 Q366.8 1167.6 519.0 894.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M303.2 1136.4 Q190.1 1197.5 77.0 1258.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M303.2 1136.4 Q190.1 1197.5 77.0 1258.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M162.8 1136.4 Q314.9 1210.5 467.0 1284.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M162.8 1136.4 Q314.9 1210.5 467.0 1284.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M586.6 1009.0 Q421.5 1072.7 256.4 1136.4" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M586.6 1009.0 Q421.5 1072.7 256.4 1136.4" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-<path d="M586.6 1040.2 Q403.2 1108.5 209.6 1136.4" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/><path d="M586.6 1040.2 Q403.2 1108.5 209.6 1136.4" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M831.0 868.6 Q683.5 945.9 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M831.0 868.6 Q683.5 945.9 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M805.0 868.6 Q669.5 935.2 519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M805.0 868.6 Q669.5 935.2 519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M233.0 868.6 Q379.7 874.1 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M233.0 868.6 Q379.7 874.1 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M207.0 868.6 Q350.4 958.0 519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M207.0 868.6 Q350.4 958.0 519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M467.0 1284.6 Q415.8 1091.6 519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M467.0 1284.6 Q415.8 1091.6 519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M779.0 868.6 Q653.8 932.7 519.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M779.0 868.6 Q653.8 932.7 519.0 972.6" stroke="#2a9d8f" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M753.0 868.6 Q558.0 894.6 363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M753.0 868.6 Q558.0 894.6 363.0 920.6" stroke="#3a86ff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M727.0 868.6 Q623.0 959.6 519.0 1050.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M727.0 868.6 Q623.0 959.6 519.0 1050.6" stroke="#8338ec" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M701.0 868.6 Q537.4 958.4 363.0 1024.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M701.0 868.6 Q537.4 958.4 363.0 1024.6" stroke="#ff006e" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675.0 868.6 Q531.6 958.0 363.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M675.0 868.6 Q531.6 958.0 363.0 946.6" stroke="#6c757d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M649.0 868.6 Q584.0 933.6 519.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M649.0 868.6 Q584.0 933.6 519.0 998.6" stroke="#c9a227" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M181.0 868.6 Q272.0 933.6 363.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M181.0 868.6 Q272.0 933.6 363.0 998.6" stroke="#06a77d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M155.0 868.6 Q259.0 920.6 363.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M155.0 868.6 Q259.0 920.6 363.0 972.6" stroke="#118ab2" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M415.0 1206.6 Q440.3 1042.1 363.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M415.0 1206.6 Q440.3 1042.1 363.0 894.6" stroke="#8d5524" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M77.0 1284.6 Q366.8 1167.6 519.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M77.0 1284.6 Q366.8 1167.6 519.0 894.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M298.0 1141.6 Q187.5 1200.1 77.0 1258.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M298.0 1141.6 Q187.5 1200.1 77.0 1258.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M168.0 1141.6 Q317.5 1213.1 467.0 1284.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M168.0 1141.6 Q317.5 1213.1 467.0 1284.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M584.0 1011.6 Q421.5 1076.6 259.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1011.6 Q421.5 1076.6 259.0 1141.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M584.0 1037.6 Q403.1 1117.2 207.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1037.6 Q403.1 1117.2 207.0 1141.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">5V</text>
 <text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">5V</text>
 <text x="510.0" y="924.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GND</text>
@@ -1639,23 +1639,23 @@
 <text x="233.0" y="1245.0" font-size="9.5" text-anchor="middle" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">charger, foam-taped on</text>
 <text x="233.0" y="1245.0" font-size="9.5" text-anchor="middle" font-weight="normal" fill="#1d3557">charger, foam-taped on</text>
 <text x="233.0" y="1412.2" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1d3557">USB-C (charging) over the bottom edge</text>
-<rect x="298.2" y="1130.4" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
-<text x="303.2" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">OUT+</text>
-<text x="303.2" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">OUT+</text>
-<rect x="251.4" y="1130.4" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
-<text x="256.4" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">B+</text>
-<text x="256.4" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">B+</text>
-<rect x="204.6" y="1130.4" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
-<text x="209.6" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">B−</text>
-<text x="209.6" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">B−</text>
-<rect x="157.8" y="1130.4" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
-<text x="162.8" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">OUT−</text>
-<text x="162.8" y="1154.4" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">OUT−</text>
+<rect x="293.0" y="1135.6" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
+<text x="298.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">OUT+</text>
+<text x="298.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">OUT+</text>
+<rect x="254.0" y="1135.6" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
+<text x="259.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">B+</text>
+<text x="259.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">B+</text>
+<rect x="202.0" y="1135.6" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
+<text x="207.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">B−</text>
+<text x="207.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">B−</text>
+<rect x="163.0" y="1135.6" width="10" height="12" rx="1" fill="#e0b050" stroke="#7a5a1a"/>
+<text x="168.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">OUT−</text>
+<text x="168.0" y="1159.6" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#1d3557">OUT−</text>
 <rect x="586.6" y="920.6" width="306.8" height="208.0" rx="8" fill="none" stroke="#b8860b" stroke-width="2.2" stroke-dasharray="7 4"/>
 <rect x="600.0" y="1118.6" width="280" height="20" rx="4" fill="#fff3cf" stroke="#b8860b" stroke-width="1.5"/>
 <text x="740.0" y="1133.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#7a5a00">LiPo: goes on LAST, on kapton tape</text>
-<circle cx="586.6" cy="1009.0" r="4" fill="#e63946" stroke="#fff" stroke-width="1"/>
-<circle cx="586.6" cy="1040.2" r="4" fill="#111" stroke="#fff" stroke-width="1"/>
+<circle cx="584.0" cy="1011.6" r="4" fill="#e63946" stroke="#fff" stroke-width="1"/>
+<circle cx="584.0" cy="1037.6" r="4" fill="#111" stroke="#fff" stroke-width="1"/>
 <polygon points="315.8,1133.9 339.8,1112.8 349.0,1123.3 325.0,1144.4" fill="#222" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
 <polygon points="333.8,1118.0 337.5,1114.7 346.8,1125.2 343.0,1128.5" fill="#e6e6e6"/>
 <text x="332.4" y="1098.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">1N5817 diode</text>
@@ -1692,14 +1692,14 @@
 <text x="414.6" y="1050.3" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">14</text>
 <circle cx="452.6" cy="997.6" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
 <text x="452.6" y="1001.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">15</text>
-<circle cx="190.1" cy="1197.5" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
-<text x="190.1" y="1201.5" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">16</text>
-<circle cx="314.9" cy="1210.5" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="314.9" y="1214.5" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">17</text>
-<circle cx="388.5" cy="1085.4" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
-<text x="388.5" y="1089.4" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">18</text>
-<circle cx="494.3" cy="1071.8" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="494.3" y="1075.8" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">19</text>
+<circle cx="187.5" cy="1200.1" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
+<text x="187.5" y="1204.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">16</text>
+<circle cx="317.5" cy="1213.1" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="317.5" y="1217.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">17</text>
+<circle cx="389.0" cy="1089.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
+<text x="389.0" y="1093.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">18</text>
+<circle cx="492.6" cy="1073.9" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="492.6" y="1077.9" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">19</text>
 <text x="972.0" y="795.6" font-size="15" text-anchor="start" font-weight="bold" fill="#222">Wire list (tick them off)</text>
 <text x="972.0" y="821.6" font-size="12.5" text-anchor="start" font-weight="bold" fill="#555">Power (3V3 + GND)</text>
 <rect x="972.0" y="833.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>

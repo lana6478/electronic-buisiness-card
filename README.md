@@ -13,6 +13,11 @@ wire numbered. Details: [build guide](docs/BUILD.md).
 
 ![perfboard layout, front and back](docs/layout.svg)
 
+The same layout with the wires drawn as straight lines and 90° turns, running
+between the holes:
+
+![perfboard layout with straight wires](docs/layout-straight.svg)
+
 ```
                       33 holes (about 86 mm)
   ┌─────────────────────────────────────────────────────────┐
