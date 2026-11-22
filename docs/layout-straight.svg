@@ -755,22 +755,22 @@
 <rect x="618.0" y="334.0" width="10" height="10" rx="1.5" fill="#d9b84a" stroke="#555" stroke-width="1"/>
 <rect x="618.0" y="360.0" width="10" height="10" rx="1.5" fill="#d9b84a" stroke="#555" stroke-width="1"/>
 <rect x="618.0" y="386.0" width="10" height="10" rx="1.5" fill="#d9b84a" stroke="#555" stroke-width="1"/>
-<text x="476.0" y="212.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">5V</text>
-<text x="476.0" y="238.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GND</text>
-<text x="476.0" y="264.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">3V3</text>
-<text x="476.0" y="290.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO4</text>
-<text x="476.0" y="316.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO3</text>
-<text x="476.0" y="342.5" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO2</text>
-<text x="476.0" y="368.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO1</text>
-<text x="476.0" y="394.5" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO0</text>
-<text x="614.0" y="212.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO5</text>
-<text x="614.0" y="238.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO6</text>
-<text x="614.0" y="264.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO7</text>
-<text x="614.0" y="290.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO8</text>
-<text x="614.0" y="316.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO9</text>
-<text x="614.0" y="342.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO10</text>
-<text x="614.0" y="368.5" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO20</text>
-<text x="614.0" y="394.5" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO21</text>
+<text x="476.0" y="212.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO5</text>
+<text x="476.0" y="238.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO6</text>
+<text x="476.0" y="264.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO7</text>
+<text x="476.0" y="290.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO8</text>
+<text x="476.0" y="316.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO9</text>
+<text x="476.0" y="342.5" font-size="9.5" text-anchor="start" font-weight="bold" fill="#fff">GPIO10</text>
+<text x="476.0" y="368.5" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO20</text>
+<text x="476.0" y="394.5" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO21</text>
+<text x="614.0" y="212.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">5V</text>
+<text x="614.0" y="238.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GND</text>
+<text x="614.0" y="264.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">3V3</text>
+<text x="614.0" y="290.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO4</text>
+<text x="614.0" y="316.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO3</text>
+<text x="614.0" y="342.5" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO2</text>
+<text x="614.0" y="368.5" font-size="9.5" text-anchor="end" font-weight="bold" fill="#fff">GPIO1</text>
+<text x="614.0" y="394.5" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO0</text>
 <text x="545.0" y="439.2" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">SuperMini: pins in columns 16 and 22, rows R – K</text>
 <text x="545.0" y="439.2" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#222">SuperMini: pins in columns 16 and 22, rows R – K</text>
 <rect x="511.2" y="531.4" width="67.6" height="57.2" rx="3" fill="#3a3a3a"/>
@@ -813,8 +813,8 @@
 <text x="972.0" y="330.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444"></text>
 <text x="972.0" y="347.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#222">Check before soldering</text>
 <text x="972.0" y="364.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">The TFT pin order (GND at S4) and the</text>
-<text x="972.0" y="381.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">SuperMini pins (5V at R16, GPIO5 at</text>
-<text x="972.0" y="398.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">R22) are the usual ones. Check them</text>
+<text x="972.0" y="381.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">SuperMini pins (5V at R22, GPIO5 at</text>
+<text x="972.0" y="398.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">R16) match what you told me. Check them</text>
 <text x="972.0" y="415.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">against the printing on your boards.</text>
 <text x="972.0" y="432.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">The button and switch holes are my</text>
 <text x="972.0" y="449.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">guess: any holes work, just keep the</text>
@@ -1569,63 +1569,63 @@
 <text x="0" y="0" transform="translate(159.0 843.1) rotate(-90)" font-size="10.5" text-anchor="start" font-weight="bold" fill="#222">SDA</text>
 <path d="M149.0 809.6 H239.0" stroke="#555" stroke-width="1.2"/>
 <text x="194.0" y="804.6" font-size="12" text-anchor="middle" font-weight="bold" fill="#222">OLED pins: S27 – S30</text>
-<path d="M831.0 868.6 L831.0 907.6 L519.0 907.6 L519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M831.0 868.6 L831.0 907.6 L519.0 907.6 L519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M805.0 868.6 L805.0 946.6 L519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M805.0 868.6 L805.0 946.6 L519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M233.0 868.6 L428.0 868.6 L428.0 920.6 L519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M233.0 868.6 L428.0 868.6 L428.0 920.6 L519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M207.0 868.6 L207.0 907.6 L324.0 907.6 L324.0 855.6 L480.0 855.6 L480.0 946.6 L519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M207.0 868.6 L207.0 907.6 L324.0 907.6 L324.0 855.6 L480.0 855.6 L480.0 946.6 L519.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M467.0 1284.6 L558.0 1284.6 L558.0 920.6 L519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M467.0 1284.6 L558.0 1284.6 L558.0 920.6 L519.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M779.0 868.6 L779.0 959.6 L519.0 959.6 L519.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M779.0 868.6 L779.0 959.6 L519.0 959.6 L519.0 972.6" stroke="#2a9d8f" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M753.0 868.6 L753.0 933.6 L584.0 933.6 L584.0 868.6 L441.0 868.6 L441.0 907.6 L363.0 907.6 L363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M753.0 868.6 L753.0 933.6 L584.0 933.6 L584.0 868.6 L441.0 868.6 L441.0 907.6 L363.0 907.6 L363.0 920.6" stroke="#3a86ff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M727.0 868.6 L714.0 868.6 L714.0 1063.6 L519.0 1063.6 L519.0 1050.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M727.0 868.6 L714.0 868.6 L714.0 1063.6 L519.0 1063.6 L519.0 1050.6" stroke="#8338ec" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M701.0 868.6 L688.0 868.6 L688.0 1141.6 L428.0 1141.6 L428.0 1024.6 L363.0 1024.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M701.0 868.6 L688.0 868.6 L688.0 1141.6 L428.0 1141.6 L428.0 1024.6 L363.0 1024.6" stroke="#ff006e" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M675.0 868.6 L675.0 894.6 L610.0 894.6 L610.0 855.6 L493.0 855.6 L493.0 933.6 L363.0 933.6 L363.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M675.0 868.6 L675.0 894.6 L610.0 894.6 L610.0 855.6 L493.0 855.6 L493.0 933.6 L363.0 933.6 L363.0 946.6" stroke="#6c757d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M649.0 868.6 L636.0 868.6 L636.0 985.6 L519.0 985.6 L519.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M649.0 868.6 L636.0 868.6 L636.0 985.6 L519.0 985.6 L519.0 998.6" stroke="#c9a227" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M181.0 868.6 L194.0 868.6 L194.0 985.6 L363.0 985.6 L363.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M181.0 868.6 L194.0 868.6 L194.0 985.6 L363.0 985.6 L363.0 998.6" stroke="#06a77d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M155.0 868.6 L155.0 959.6 L363.0 959.6 L363.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M155.0 868.6 L155.0 959.6 L363.0 959.6 L363.0 972.6" stroke="#118ab2" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M415.0 1206.6 L402.0 1206.6 L402.0 894.6 L363.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M415.0 1206.6 L402.0 1206.6 L402.0 894.6 L363.0 894.6" stroke="#8d5524" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M77.0 1284.6 L77.0 1271.6 L376.0 1271.6 L376.0 1089.6 L454.0 1089.6 L454.0 894.6 L519.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M77.0 1284.6 L77.0 1271.6 L376.0 1271.6 L376.0 1089.6 L454.0 1089.6 L454.0 894.6 L519.0 894.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831.0 868.6 L831.0 907.6 L363.0 907.6 L363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M831.0 868.6 L831.0 907.6 L363.0 907.6 L363.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M805.0 868.6 L805.0 933.6 L363.0 933.6 L363.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M805.0 868.6 L805.0 933.6 L363.0 933.6 L363.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M233.0 868.6 L233.0 920.6 L363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M233.0 868.6 L233.0 920.6 L363.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M207.0 868.6 L207.0 946.6 L363.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M207.0 868.6 L207.0 946.6 L363.0 946.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M415.0 1284.6 L402.0 1284.6 L402.0 920.6 L363.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M415.0 1284.6 L402.0 1284.6 L402.0 920.6 L363.0 920.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M779.0 868.6 L779.0 959.6 L363.0 959.6 L363.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M779.0 868.6 L779.0 959.6 L363.0 959.6 L363.0 972.6" stroke="#2a9d8f" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M753.0 868.6 L753.0 920.6 L519.0 920.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M753.0 868.6 L753.0 920.6 L519.0 920.6" stroke="#3a86ff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M727.0 868.6 L714.0 868.6 L714.0 1063.6 L363.0 1063.6 L363.0 1050.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M727.0 868.6 L714.0 868.6 L714.0 1063.6 L363.0 1063.6 L363.0 1050.6" stroke="#8338ec" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M701.0 868.6 L688.0 868.6 L688.0 1024.6 L519.0 1024.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M701.0 868.6 L688.0 868.6 L688.0 1024.6 L519.0 1024.6" stroke="#ff006e" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675.0 868.6 L675.0 946.6 L519.0 946.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M675.0 868.6 L675.0 946.6 L519.0 946.6" stroke="#6c757d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M649.0 868.6 L649.0 855.6 L428.0 855.6 L428.0 998.6 L363.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M649.0 868.6 L649.0 855.6 L428.0 855.6 L428.0 998.6 L363.0 998.6" stroke="#c9a227" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M181.0 868.6 L194.0 868.6 L194.0 985.6 L519.0 985.6 L519.0 998.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M181.0 868.6 L194.0 868.6 L194.0 985.6 L519.0 985.6 L519.0 998.6" stroke="#06a77d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M155.0 868.6 L155.0 855.6 L415.0 855.6 L415.0 972.6 L519.0 972.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M155.0 868.6 L155.0 855.6 L415.0 855.6 L415.0 972.6 L519.0 972.6" stroke="#118ab2" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M467.0 1206.6 L480.0 1206.6 L480.0 894.6 L519.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M467.0 1206.6 L480.0 1206.6 L480.0 894.6 L519.0 894.6" stroke="#8d5524" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M77.0 1284.6 L77.0 1271.6 L324.0 1271.6 L324.0 894.6 L363.0 894.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M77.0 1284.6 L77.0 1271.6 L324.0 1271.6 L324.0 894.6 L363.0 894.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M298.0 1141.6 L298.0 1245.6 L77.0 1245.6 L77.0 1258.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M298.0 1141.6 L298.0 1245.6 L77.0 1245.6 L77.0 1258.6" stroke="#f77f00" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M168.0 1141.6 L168.0 1323.6 L467.0 1323.6 L467.0 1284.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M168.0 1141.6 L168.0 1323.6 L467.0 1323.6 L467.0 1284.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M584.0 1011.6 L610.0 1011.6 L610.0 1115.6 L259.0 1115.6 L259.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1011.6 L610.0 1011.6 L610.0 1115.6 L259.0 1115.6 L259.0 1141.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M584.0 1037.6 L584.0 1167.6 L207.0 1167.6 L207.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1037.6 L584.0 1167.6 L207.0 1167.6 L207.0 1141.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">5V</text>
-<text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">5V</text>
-<text x="510.0" y="924.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GND</text>
-<text x="510.0" y="924.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GND</text>
-<text x="510.0" y="950.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">3V3</text>
-<text x="510.0" y="950.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">3V3</text>
-<text x="510.0" y="976.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO4</text>
-<text x="510.0" y="976.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO4</text>
-<text x="510.0" y="1002.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO3</text>
-<text x="510.0" y="1002.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO3</text>
-<text x="510.0" y="1028.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO2</text>
-<text x="510.0" y="1028.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO2</text>
-<text x="510.0" y="1054.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO1</text>
-<text x="510.0" y="1054.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO1</text>
-<text x="510.0" y="1080.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO0</text>
-<text x="510.0" y="1080.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO0</text>
-<text x="372.0" y="898.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO5</text>
-<text x="372.0" y="898.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO5</text>
-<text x="372.0" y="924.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO6</text>
-<text x="372.0" y="924.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO6</text>
-<text x="372.0" y="950.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO7</text>
-<text x="372.0" y="950.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO7</text>
-<text x="372.0" y="976.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO8</text>
-<text x="372.0" y="976.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO8</text>
-<text x="372.0" y="1002.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO9</text>
-<text x="372.0" y="1002.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO9</text>
-<text x="372.0" y="1028.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO10</text>
-<text x="372.0" y="1028.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO10</text>
-<text x="372.0" y="1054.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO20</text>
-<text x="372.0" y="1054.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO20</text>
-<text x="372.0" y="1080.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO21</text>
-<text x="372.0" y="1080.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO21</text>
-<text x="405.0" y="1210.6" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">B</text>
-<text x="405.0" y="1210.6" font-size="10" text-anchor="end" font-weight="bold" fill="#000">B</text>
-<text x="477.0" y="1288.6" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">C</text>
-<text x="477.0" y="1288.6" font-size="10" text-anchor="start" font-weight="bold" fill="#000">C</text>
-<text x="441.0" y="1325.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">button (use legs B and C)</text>
-<text x="441.0" y="1325.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#333">button (use legs B and C)</text>
+<path d="M168.0 1141.6 L168.0 1297.6 L415.0 1297.6 L415.0 1284.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M168.0 1141.6 L168.0 1297.6 L415.0 1297.6 L415.0 1284.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M584.0 1011.6 L272.0 1011.6 L272.0 1141.6 L259.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1011.6 L272.0 1011.6 L272.0 1141.6 L259.0 1141.6" stroke="#e63946" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M584.0 1037.6 L220.0 1037.6 L220.0 1141.6 L207.0 1141.6" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M584.0 1037.6 L220.0 1037.6 L220.0 1141.6 L207.0 1141.6" stroke="#111111" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO5</text>
+<text x="510.0" y="898.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO5</text>
+<text x="510.0" y="924.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO6</text>
+<text x="510.0" y="924.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO6</text>
+<text x="510.0" y="950.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO7</text>
+<text x="510.0" y="950.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO7</text>
+<text x="510.0" y="976.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO8</text>
+<text x="510.0" y="976.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO8</text>
+<text x="510.0" y="1002.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO9</text>
+<text x="510.0" y="1002.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO9</text>
+<text x="510.0" y="1028.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO10</text>
+<text x="510.0" y="1028.1" font-size="9.5" text-anchor="end" font-weight="bold" fill="#222">GPIO10</text>
+<text x="510.0" y="1054.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO20</text>
+<text x="510.0" y="1054.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO20</text>
+<text x="510.0" y="1080.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO21</text>
+<text x="510.0" y="1080.1" font-size="9.5" text-anchor="end" font-weight="normal" fill="#999">GPIO21</text>
+<text x="372.0" y="898.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">5V</text>
+<text x="372.0" y="898.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">5V</text>
+<text x="372.0" y="924.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GND</text>
+<text x="372.0" y="924.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GND</text>
+<text x="372.0" y="950.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">3V3</text>
+<text x="372.0" y="950.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">3V3</text>
+<text x="372.0" y="976.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO4</text>
+<text x="372.0" y="976.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO4</text>
+<text x="372.0" y="1002.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO3</text>
+<text x="372.0" y="1002.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO3</text>
+<text x="372.0" y="1028.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO2</text>
+<text x="372.0" y="1028.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO2</text>
+<text x="372.0" y="1054.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO1</text>
+<text x="372.0" y="1054.1" font-size="9.5" text-anchor="start" font-weight="bold" fill="#222">GPIO1</text>
+<text x="372.0" y="1080.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">GPIO0</text>
+<text x="372.0" y="1080.1" font-size="9.5" text-anchor="start" font-weight="normal" fill="#999">GPIO0</text>
+<text x="477.0" y="1210.6" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">A</text>
+<text x="477.0" y="1210.6" font-size="10" text-anchor="start" font-weight="bold" fill="#000">A</text>
+<text x="405.0" y="1288.6" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">D</text>
+<text x="405.0" y="1288.6" font-size="10" text-anchor="end" font-weight="bold" fill="#000">D</text>
+<text x="441.0" y="1325.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">button (use legs A and D)</text>
+<text x="441.0" y="1325.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#333">button (use legs A and D)</text>
 <text x="87.0" y="1236.6" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">switch</text>
 <text x="87.0" y="1236.6" font-size="10" text-anchor="start" font-weight="bold" fill="#333">switch</text>
 <text x="87.0" y="1262.6" font-size="9" text-anchor="start" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">middle</text>
@@ -1656,114 +1656,114 @@
 <text x="740.0" y="1133.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#7a5a00">LiPo: goes on LAST, on kapton tape</text>
 <circle cx="584.0" cy="1011.6" r="4" fill="#e63946" stroke="#fff" stroke-width="1"/>
 <circle cx="584.0" cy="1037.6" r="4" fill="#111" stroke="#fff" stroke-width="1"/>
-<polygon points="210.5,1264.6 242.5,1264.6 242.5,1278.6 210.5,1278.6" fill="#222" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
-<polygon points="234.5,1264.6 239.5,1264.6 239.5,1278.6 234.5,1278.6" fill="#e6e6e6"/>
-<text x="226.5" y="1297.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">1N5817 diode</text>
-<text x="226.5" y="1297.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#000">1N5817 diode</text>
-<text x="226.5" y="1310.6" font-size="10" text-anchor="middle" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">stripe end towards 5V</text>
-<text x="226.5" y="1310.6" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">stripe end towards 5V</text>
-<circle cx="675.0" cy="907.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="675.0" y="911.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">1</text>
-<circle cx="805.0" cy="907.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
-<text x="805.0" y="911.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">2</text>
-<circle cx="330.5" cy="868.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="330.5" y="872.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">3</text>
-<circle cx="402.0" cy="855.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
-<text x="402.0" y="859.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">4</text>
-<circle cx="558.0" cy="1102.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="558.0" y="1106.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">5</text>
-<circle cx="649.0" cy="959.6" r="9" fill="#2a9d8f" stroke="#fff" stroke-width="1.8"/>
-<text x="649.0" y="963.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">6</text>
-<circle cx="512.5" cy="868.6" r="9" fill="#3a86ff" stroke="#fff" stroke-width="1.8"/>
-<text x="512.5" y="872.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">7</text>
-<circle cx="714.0" cy="966.1" r="9" fill="#8338ec" stroke="#fff" stroke-width="1.8"/>
-<text x="714.0" y="970.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">8</text>
-<circle cx="688.0" cy="1005.1" r="9" fill="#ff006e" stroke="#fff" stroke-width="1.8"/>
-<text x="688.0" y="1009.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">9</text>
-<circle cx="428.0" cy="933.6" r="9" fill="#6c757d" stroke="#fff" stroke-width="1.8"/>
-<text x="428.0" y="937.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">10</text>
-<circle cx="577.5" cy="985.6" r="9" fill="#c9a227" stroke="#fff" stroke-width="1.8"/>
-<text x="577.5" y="989.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">11</text>
-<circle cx="278.5" cy="985.6" r="9" fill="#06a77d" stroke="#fff" stroke-width="1.8"/>
-<text x="278.5" y="989.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">12</text>
-<circle cx="155.0" cy="914.1" r="9" fill="#118ab2" stroke="#fff" stroke-width="1.8"/>
-<text x="155.0" y="918.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">13</text>
-<circle cx="402.0" cy="1050.6" r="9" fill="#8d5524" stroke="#fff" stroke-width="1.8"/>
-<text x="402.0" y="1054.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">14</text>
-<circle cx="454.0" cy="992.1" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
-<text x="454.0" y="996.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">15</text>
-<circle cx="187.5" cy="1245.6" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
-<text x="187.5" y="1249.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">16</text>
-<circle cx="317.5" cy="1323.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="317.5" y="1327.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">17</text>
-<circle cx="434.5" cy="1115.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
-<text x="434.5" y="1119.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">18</text>
-<circle cx="395.5" cy="1167.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
-<text x="395.5" y="1171.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">19</text>
+<polygon points="317.0,1099.1 317.0,1067.1 331.0,1067.1 331.0,1099.1" fill="#222" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="317.0,1075.1 317.0,1070.1 331.0,1070.1 331.0,1075.1" fill="#e6e6e6"/>
+<text x="324.0" y="1109.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">1N5817 diode</text>
+<text x="324.0" y="1109.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#000">1N5817 diode</text>
+<text x="324.0" y="1122.1" font-size="10" text-anchor="middle" font-weight="normal" fill="#ffffff" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">stripe end towards 5V</text>
+<text x="324.0" y="1122.1" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">stripe end towards 5V</text>
+<circle cx="597.0" cy="907.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="597.0" y="911.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">1</text>
+<circle cx="805.0" cy="901.1" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
+<text x="805.0" y="905.1" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">2</text>
+<circle cx="298.0" cy="920.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="298.0" y="924.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">3</text>
+<circle cx="207.0" cy="907.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
+<text x="207.0" y="911.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">4</text>
+<circle cx="402.0" cy="1102.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="402.0" y="1106.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">5</text>
+<circle cx="571.0" cy="959.6" r="9" fill="#2a9d8f" stroke="#fff" stroke-width="1.8"/>
+<text x="571.0" y="963.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">6</text>
+<circle cx="753.0" cy="894.6" r="9" fill="#3a86ff" stroke="#fff" stroke-width="1.8"/>
+<text x="753.0" y="898.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">7</text>
+<circle cx="538.5" cy="1063.6" r="9" fill="#8338ec" stroke="#fff" stroke-width="1.8"/>
+<text x="538.5" y="1067.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">8</text>
+<circle cx="603.5" cy="1024.6" r="9" fill="#ff006e" stroke="#fff" stroke-width="1.8"/>
+<text x="603.5" y="1028.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">9</text>
+<circle cx="675.0" cy="907.6" r="9" fill="#6c757d" stroke="#fff" stroke-width="1.8"/>
+<text x="675.0" y="911.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">10</text>
+<circle cx="538.5" cy="855.6" r="9" fill="#c9a227" stroke="#fff" stroke-width="1.8"/>
+<text x="538.5" y="859.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">11</text>
+<circle cx="291.5" cy="985.6" r="9" fill="#06a77d" stroke="#fff" stroke-width="1.8"/>
+<text x="291.5" y="989.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">12</text>
+<circle cx="285.0" cy="855.6" r="9" fill="#118ab2" stroke="#fff" stroke-width="1.8"/>
+<text x="285.0" y="859.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">13</text>
+<circle cx="480.0" cy="1050.6" r="9" fill="#8d5524" stroke="#fff" stroke-width="1.8"/>
+<text x="480.0" y="1054.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">14</text>
+<circle cx="200.5" cy="1271.6" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
+<text x="200.5" y="1275.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">15</text>
+<circle cx="298.0" cy="1193.6" r="9" fill="#f77f00" stroke="#fff" stroke-width="1.8"/>
+<text x="298.0" y="1197.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">16</text>
+<circle cx="291.5" cy="1297.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="291.5" y="1301.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">17</text>
+<circle cx="428.0" cy="1011.6" r="9" fill="#e63946" stroke="#fff" stroke-width="1.8"/>
+<text x="428.0" y="1015.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">18</text>
+<circle cx="220.0" cy="1089.6" r="9" fill="#111111" stroke="#fff" stroke-width="1.8"/>
+<text x="220.0" y="1093.6" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#fff">19</text>
 <text x="972.0" y="795.6" font-size="15" text-anchor="start" font-weight="bold" fill="#222">Wire list (tick them off)</text>
 <text x="972.0" y="821.6" font-size="12.5" text-anchor="start" font-weight="bold" fill="#555">Power (3V3 + GND)</text>
 <rect x="972.0" y="833.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="839.6" r="8.5" fill="#111111"/>
 <text x="1000.0" y="843.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">1</text>
-<text x="1014.0" y="844.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT GND → board GND  (S4 → Q16)</text>
+<text x="1014.0" y="844.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT GND → board GND  (S4 → Q22)</text>
 <rect x="972.0" y="852.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="858.6" r="8.5" fill="#e63946"/>
 <text x="1000.0" y="862.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">2</text>
-<text x="1014.0" y="863.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT VCC → board 3V3  (S5 → P16)</text>
+<text x="1014.0" y="863.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT VCC → board 3V3  (S5 → P22)</text>
 <rect x="972.0" y="871.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="877.6" r="8.5" fill="#111111"/>
 <text x="1000.0" y="881.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">3</text>
-<text x="1014.0" y="882.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED GND → board GND  (S27 → Q16)</text>
+<text x="1014.0" y="882.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED GND → board GND  (S27 → Q22)</text>
 <rect x="972.0" y="890.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="896.6" r="8.5" fill="#e63946"/>
 <text x="1000.0" y="900.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">4</text>
-<text x="1014.0" y="901.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED VDD → board 3V3  (S28 → P16)</text>
+<text x="1014.0" y="901.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED VDD → board 3V3  (S28 → P22)</text>
 <rect x="972.0" y="909.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="915.6" r="8.5" fill="#111111"/>
 <text x="1000.0" y="919.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">5</text>
-<text x="1014.0" y="920.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Button leg C → board GND  (C18 → Q16)</text>
+<text x="1014.0" y="920.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Button leg D → board GND  (C20 → Q22)</text>
 <text x="972.0" y="946.6" font-size="12.5" text-anchor="start" font-weight="bold" fill="#555">Screen + button signals</text>
 <rect x="972.0" y="958.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="964.6" r="8.5" fill="#2a9d8f"/>
 <text x="1000.0" y="968.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">6</text>
-<text x="1014.0" y="969.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT SCL → GPIO4  (S6 → O16)</text>
+<text x="1014.0" y="969.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT SCL → GPIO4  (S6 → O22)</text>
 <rect x="972.0" y="977.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="983.6" r="8.5" fill="#3a86ff"/>
 <text x="1000.0" y="987.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">7</text>
-<text x="1014.0" y="988.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT SDA → GPIO6  (S7 → Q22)</text>
+<text x="1014.0" y="988.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT SDA → GPIO6  (S7 → Q16)</text>
 <rect x="972.0" y="996.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1002.6" r="8.5" fill="#8338ec"/>
 <text x="1000.0" y="1006.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">8</text>
-<text x="1014.0" y="1007.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT RES → GPIO1  (S8 → L16)</text>
+<text x="1014.0" y="1007.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT RES → GPIO1  (S8 → L22)</text>
 <rect x="972.0" y="1015.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1021.6" r="8.5" fill="#ff006e"/>
 <text x="1000.0" y="1025.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">9</text>
-<text x="1014.0" y="1026.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT DC → GPIO10  (S9 → M22)</text>
+<text x="1014.0" y="1026.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT DC → GPIO10  (S9 → M16)</text>
 <rect x="972.0" y="1034.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1040.6" r="8.5" fill="#6c757d"/>
 <text x="1000.0" y="1044.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">10</text>
-<text x="1014.0" y="1045.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT CS → GPIO7  (S10 → P22)</text>
+<text x="1014.0" y="1045.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT CS → GPIO7  (S10 → P16)</text>
 <rect x="972.0" y="1053.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1059.6" r="8.5" fill="#c9a227"/>
 <text x="1000.0" y="1063.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">11</text>
-<text x="1014.0" y="1064.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT BLK → GPIO3  (S11 → N16)</text>
+<text x="1014.0" y="1064.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TFT BLK → GPIO3  (S11 → N22)</text>
 <rect x="972.0" y="1072.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1078.6" r="8.5" fill="#06a77d"/>
 <text x="1000.0" y="1082.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">12</text>
-<text x="1014.0" y="1083.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED SCK → GPIO9  (S29 → N22)</text>
+<text x="1014.0" y="1083.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED SCK → GPIO9  (S29 → N16)</text>
 <rect x="972.0" y="1091.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1097.6" r="8.5" fill="#118ab2"/>
 <text x="1000.0" y="1101.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">13</text>
-<text x="1014.0" y="1102.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED SDA → GPIO8  (S30 → O22)</text>
+<text x="1014.0" y="1102.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">OLED SDA → GPIO8  (S30 → O16)</text>
 <rect x="972.0" y="1110.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1116.6" r="8.5" fill="#8d5524"/>
 <text x="1000.0" y="1120.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">14</text>
-<text x="1014.0" y="1121.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Button leg B → GPIO5  (F20 → R22)</text>
+<text x="1014.0" y="1121.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Button leg A → GPIO5  (F18 → R16)</text>
 <text x="972.0" y="1147.6" font-size="12.5" text-anchor="start" font-weight="bold" fill="#555">Battery (do last)</text>
 <rect x="972.0" y="1159.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1165.6" r="8.5" fill="#f77f00"/>
 <text x="1000.0" y="1169.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">15</text>
-<text x="1014.0" y="1170.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Switch outer pin → diode → 5V  (C33 → R16)</text>
+<text x="1014.0" y="1170.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">Switch outer pin → diode → 5V  (C33 → R22)</text>
 <rect x="972.0" y="1178.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1184.6" r="8.5" fill="#f77f00"/>
 <text x="1000.0" y="1188.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">16</text>
@@ -1771,7 +1771,7 @@
 <rect x="972.0" y="1197.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1203.6" r="8.5" fill="#111111"/>
 <text x="1000.0" y="1207.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">17</text>
-<text x="1014.0" y="1208.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TP4056 OUT− → button leg C (GND)  (C18)</text>
+<text x="1014.0" y="1208.6" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">TP4056 OUT− → button leg D (GND)  (C20)</text>
 <rect x="972.0" y="1216.6" width="12" height="12" rx="2" fill="none" stroke="#777"/>
 <circle cx="1000.0" cy="1222.6" r="8.5" fill="#e63946"/>
 <text x="1000.0" y="1226.6" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">18</text>
@@ -1783,8 +1783,8 @@
 <text x="972.0" y="1280.6" font-size="12.5" text-anchor="start" font-weight="bold" fill="#222">Tips</text>
 <text x="972.0" y="1297.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">Real wires don't have to follow these lines:</text>
 <text x="972.0" y="1314.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">keep them flat. A wire only joins a pin at</text>
-<text x="972.0" y="1331.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">its ends. Board GND (Q16) takes wires 1, 3</text>
-<text x="972.0" y="1348.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">and 5. Button leg C takes wires 5 and 17.</text>
+<text x="972.0" y="1331.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">its ends. Board GND (Q22) takes wires 1, 3</text>
+<text x="972.0" y="1348.6" font-size="12.5" text-anchor="start" font-weight="normal" fill="#444">and 5. Button leg D takes wires 5 and 17.</text>
 <text x="64.0" y="1457.4" font-size="12.5" text-anchor="start" font-weight="bold" fill="#7b2d26">Seen from the back, the TFT is on the RIGHT and the OLED on the LEFT. Numbers run 33 → 1.</text>
 <text x="64.0" y="1475.4" font-size="12" text-anchor="start" font-weight="normal" fill="#555">Full pin table: WIRING.md</text>
 </svg>

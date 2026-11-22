@@ -93,18 +93,18 @@ before mounting it. Charge through the XIAO's USB-C.
 ## Board pinouts (top view, USB-C at the top)
 
 ```
-          ESP32-C3 SuperMini
-             ┌──[USB-C]──┐
-  (diode) 5V ●           ● GPIO5   BUTTON
-          GND ●           ● GPIO6   TFT SDA
-          3V3 ●           ● GPIO7   TFT CS
-  TFT SCL GPIO4 ●         ● GPIO8   OLED SDA
-  TFT BLK GPIO3 ●         ● GPIO9   OLED SCL
-  (spare) GPIO2 ●         ● GPIO10  TFT DC
-  TFT RES GPIO1 ●         ● GPIO20  (spare)
-  (spare) GPIO0 ●         ● GPIO21  (spare)
-             └───────────┘
-
+          ESP32-C3 SuperMini (chip side up)
+                ┌──[USB-C]──┐
+   BUTTON  GPIO5 ●           ● 5V     (diode)
+   TFT SDA GPIO6 ●           ● GND
+   TFT CS  GPIO7 ●           ● 3V3
+  OLED SDA GPIO8 ●           ● GPIO4  TFT SCL
+  OLED SCL GPIO9 ●           ● GPIO3  TFT BLK
+   TFT DC GPIO10 ●           ● GPIO2  (spare)
+  (spare) GPIO20 ●           ● GPIO1  TFT RES
+  (spare) GPIO21 ●           ● GPIO0  (spare)
+                └───────────┘
+   on the board: column 16       column 22
 
           Seeed XIAO ESP32-C3
              ┌──[USB-C]──┐

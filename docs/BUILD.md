@@ -25,10 +25,11 @@ Hole names are letter + number, as printed on the board:
   covers the left part of the board. Put a strip of foam tape under the
   far edge of the module so it doesn't wobble.
 - **SuperMini:** between the screens, with its USB-C over the top edge for
-  programming. Its pins are in **columns 16 and 22, rows R to K**: 5V at R16
-  and GPIO5 at R22.
+  programming. Its pins are in **columns 16 and 22, rows R to K**: 5V at R22
+  and GPIO5 at R16 (5V, GND and 3V3 are on the right-hand column).
 - **OLED:** 4-pin header in **S27–S30** (GND, VDD, SCK, SDA).
-- **Button:** below the SuperMini, legs in F18, F20, C18 and C20.
+- **Button:** below the SuperMini, legs in F18, F20, C18 and C20. Wire the
+  diagonal legs F18 (to GPIO5) and C20 (to GND).
 - **Slide switch:** on the right edge in E33, D33 and C33, lever sticking
   out sideways.
 - **TP4056 (back):** behind the button area, with its USB-C over the
@@ -37,7 +38,7 @@ Hole names are letter + number, as printed on the board:
 - **LiPo (back):** behind the TFT, fitted last, on kapton tape.
 - **Check the pin printing on your own boards** before soldering. If your
   TFT's pins run the other way (BLK at S4), or your SuperMini has 5V
-  somewhere else, wire by the names, not the hole positions.
+  somewhere other than R22, wire by the names, not the hole positions.
 
 ## Step by step
 

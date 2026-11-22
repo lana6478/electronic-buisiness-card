@@ -9,13 +9,14 @@ a = o.append
 def t(x, y, s, size=12, anchor="start", fill="#222", w="normal"):
     a(f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{fill}" font-weight="{w}">{s}</text>')
 def wire(d, c, wd=3):
+    a(f'<path d="{d}" stroke="#ffffff" stroke-width="{wd + 4}" fill="none" stroke-linejoin="round"/>')
     a(f'<path d="{d}" stroke="{c}" stroke-width="{wd}" fill="none" stroke-linejoin="round"/>')
 def dot(x, y, c="#111"):
     a(f'<circle cx="{x}" cy="{y}" r="4.5" fill="{c}"/>')
 def gnd(x, y):
     a(f'<path d="M{x} {y} v10 M{x-10} {y+10} h20 M{x-6} {y+15} h12 M{x-2} {y+20} h4" stroke="#111" stroke-width="2.5" fill="none"/>')
 
-W, H = 1000, 760
+W, H = 1000, 800
 a(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="Helvetica, Arial, sans-serif">')
 a(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
 t(W/2, 32, "Wiring: ESP32-C3 SuperMini (parts placed as on the board)", 20, "middle", "#222", "bold")
@@ -38,8 +39,8 @@ for n, y in tft:
 a('<rect x="430" y="150" width="160" height="295" rx="8" fill="#2a2a2a"/>')
 a('<rect x="485" y="126" width="50" height="28" rx="5" fill="#aaa"/>'); t(510, 145, "USB-C", 10, "middle", "#222", "bold")
 t(510, 300, "ESP32-C3", 13, "middle", "#fff", "bold"); t(510, 317, "SuperMini", 11, "middle", "#ccc")
-L = ["5V", "GND", "3V3", "GPIO4", "GPIO3", "GPIO2", "GPIO1", "GPIO0"]
-R = ["GPIO5", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO20", "GPIO21"]
+L = ["GPIO5", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO20", "GPIO21"]   # column 16
+R = ["5V", "GND", "3V3", "GPIO4", "GPIO3", "GPIO2", "GPIO1", "GPIO0"]           # column 22
 used = {"5V", "GND", "3V3", "GPIO4", "GPIO3", "GPIO1", "GPIO5", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10"}
 py = {}
 for i, n in enumerate(L):
@@ -48,7 +49,7 @@ for i, n in enumerate(L):
 for i, n in enumerate(R):
     y = 180 + i * 34; py[n] = (590, y)
     t(582, y + 4, n, 11, "end", "#fff" if n in used else "#777", "bold" if n in used else "normal")
-t(510, 438, "col 16 ← → col 22", 9.5, "middle", "#aaa")
+t(510, 438, "col 16       col 22", 9.5, "middle", "#aaa")
 # OLED
 a('<rect x="770" y="160" width="190" height="170" rx="10" fill="#1d3557"/>')
 a('<rect x="840" y="200" width="105" height="18" fill="#ffd60a"/><rect x="840" y="218" width="105" height="70" fill="#4cc9f0"/>')
@@ -61,53 +62,56 @@ for n, y in oled:
 # power to rails
 wire("M230 190 H262 V100", GND); dot(262, 100)
 wire("M230 225 H276 V118", V3); dot(276, 118)
-wire(f"M430 {py['GND'][1]} H392 V100", GND); dot(392, 100)
-wire(f"M430 {py['3V3'][1]} H378 V118", V3); dot(378, 118)
+wire(f"M590 {py['GND'][1]} H704 V100", GND); dot(704, 100)
+wire(f"M590 {py['3V3'][1]} H690 V118", V3); dot(690, 118)
 wire("M770 190 H738 V100", GND); dot(738, 100)
 wire("M770 225 H724 V118", V3); dot(724, 118)
 
-# TFT signals
-def lab(x, y, s, c):
-    t(x, y, s, 10.5, "start", c, "bold")
-wire(f"M230 260 H330 V{py['GPIO4'][1]} H430", "#2a9d8f")
-wire(f"M230 330 H315 V{py['GPIO1'][1]} H430", "#8338ec")
-wire(f"M230 435 H345 V{py['GPIO3'][1]} H430", "#c9a227")
-wire(f"M230 295 H285 V560 H690 V{py['GPIO6'][1]} H590", "#3a86ff")
-wire(f"M230 400 H295 V545 H675 V{py['GPIO7'][1]} H590", "#6c757d")
-wire(f"M230 365 H305 V530 H660 V{py['GPIO10'][1]} H590", "#ff006e")
-# OLED signals
-wire(f"M770 260 H640 V{py['GPIO9'][1]} H590", "#06a77d")
-wire(f"M770 295 H625 V{py['GPIO8'][1]} H590", "#118ab2")
+# TFT -> left column (GPIO6, GPIO7, GPIO10)
+wire(f"M230 295 H330 V{py['GPIO6'][1]} H430", "#3a86ff")
+wire(f"M230 400 H345 V{py['GPIO7'][1]} H430", "#6c757d")
+wire(f"M230 365 H360 V{py['GPIO10'][1]} H430", "#ff006e")
+# TFT -> right column (GPIO4, GPIO3, GPIO1), under the SuperMini
+wire(f"M230 260 H285 V560 H634 V{py['GPIO4'][1]} H590", "#2a9d8f")
+wire(f"M230 435 H297 V545 H620 V{py['GPIO3'][1]} H590", "#c9a227")
+wire(f"M230 330 H309 V530 H606 V{py['GPIO1'][1]} H590", "#8338ec")
+# OLED -> left column (GPIO8, GPIO9), under everything
+wire(f"M770 295 H750 V590 H390 V{py['GPIO8'][1]} H430", "#118ab2")
+wire(f"M770 260 H760 V605 H380 V{py['GPIO9'][1]} H430", "#06a77d")
 
-# button
-a('<rect x="480" y="610" width="60" height="60" rx="6" fill="#444"/><circle cx="510" cy="640" r="17" fill="#e63946"/>')
-t(510, 690, "button (F18 F20 C18 C20)", 11.5, "middle", "#222", "bold")
-t(510, 705, "tap = next, hold = sleep", 10.5, "middle", "#555")
-wire(f"M590 {py['GPIO5'][1]} H754 V640 H540", "#8d5524")
-t(758, 420, "GPIO5", 10.5, "start", "#8d5524", "bold")
-wire("M480 640 H455 V660", GND); gnd(455, 660)
+# button (brown tags = joined to each other)
+def tag(x, y, s, anchor):
+    w = 7 * len(s) + 12
+    x0 = x - w if anchor == "end" else x
+    a(f'<rect x="{x0}" y="{y - 10}" width="{w}" height="20" rx="10" fill="#8d5524"/>')
+    t(x0 + w / 2, y + 4, s, 10.5, "middle", "#fff", "bold")
+wire(f"M430 {py['GPIO5'][1]} H404", "#8d5524"); tag(404, py['GPIO5'][1], "to button", "end")
+a('<rect x="470" y="640" width="60" height="60" rx="6" fill="#444"/><circle cx="500" cy="670" r="17" fill="#e63946"/>')
+t(500, 718, "button (F18 F20 C18 C20)", 11.5, "middle", "#222", "bold")
+t(500, 733, "tap = next, hold = sleep", 10.5, "middle", "#555")
+wire("M470 670 H446", "#8d5524"); tag(446, 670, "to GPIO5", "end")
+t(462, 660, "F18", 9.5, "end", "#555")
+wire("M530 670 H552 V688", GND); gnd(552, 688); t(538, 660, "C20", 9.5, "start", "#555")
 
-# battery chain, bottom left
-a('<rect x="40" y="610" width="90" height="56" rx="8" fill="#ffd166" stroke="#222"/>')
-t(85, 634, "LiPo", 13, "middle", "#222", "bold"); t(85, 650, "3.7 V 250 mAh", 9.5, "middle", "#222")
-a('<rect x="160" y="600" width="110" height="80" rx="6" fill="#1d3557"/>')
-t(215, 637, "TP4056", 13, "middle", "#fff", "bold"); t(215, 652, "USB-C charger", 10, "middle", "#ccd")
-t(166, 618, "B+", 10, "start", "#fff", "bold"); t(166, 675, "B−", 10, "start", "#fff", "bold")
-t(264, 618, "OUT+", 10, "end", "#fff", "bold"); t(264, 675, "OUT−", 10, "end", "#fff", "bold")
-wire("M130 620 H160", V3); wire("M130 656 H160", GND)
-wire("M270 670 H290 V690", GND); gnd(290, 690)
-# switch
-wire("M270 614 H300", V5)
-a('<rect x="300" y="604" width="40" height="20" rx="3" fill="#8d99ae" stroke="#555"/><rect x="306" y="597" width="10" height="9" fill="#333"/>')
-t(320, 642, "switch", 11, "middle", "#222", "bold"); t(320, 656, "E33 D33 C33", 9.5, "middle", "#555")
-# diode
-wire("M340 614 H352", V5)
-a('<polygon points="352,603 352,625 372,614" fill="#222"/><rect x="372" y="603" width="4" height="22" fill="#222"/>')
-t(364, 642, "1N5817", 10.5, "middle", "#222", "bold"); t(364, 670, "stripe → 5V", 9.5, "middle", "#555")
-wire(f"M376 614 H405 V{py['5V'][1]} H430", V5)
-t(410, 595, "5V", 11, "start", V5, "bold")
+# battery chain, bottom right: LiPo -> TP4056 -> switch -> diode -> 5V
+wire(f"M590 {py['5V'][1]} H660 V644 H664", V5)
+t(666, 400, "5V", 11, "start", V5, "bold")
+a('<polygon points="684,633 684,655 666,644" fill="#222"/><rect x="662" y="633" width="4" height="22" fill="#222"/>')
+t(674, 672, "1N5817", 10.5, "middle", "#222", "bold"); t(674, 686, "stripe → 5V", 9.5, "middle", "#555")
+wire("M684 644 H700", V5)
+a('<rect x="700" y="634" width="40" height="20" rx="3" fill="#8d99ae" stroke="#555"/><rect x="724" y="627" width="10" height="9" fill="#333"/>')
+t(728, 686, "switch", 11, "middle", "#222", "bold"); t(742, 700, "E33 D33 C33", 9.5, "middle", "#555")
+wire("M740 644 H770", V5)
+a('<rect x="770" y="626" width="110" height="80" rx="6" fill="#1d3557"/>')
+t(825, 662, "TP4056", 13, "middle", "#fff", "bold"); t(825, 677, "USB-C charger", 10, "middle", "#ccd")
+t(776, 644, "OUT+", 10, "start", "#fff", "bold"); t(776, 700, "OUT−", 10, "start", "#fff", "bold")
+t(874, 644, "B+", 10, "end", "#fff", "bold"); t(874, 700, "B−", 10, "end", "#fff", "bold")
+wire("M770 696 H756 V712", GND); gnd(756, 712)
+a('<rect x="900" y="634" width="70" height="62" rx="8" fill="#ffd166" stroke="#222"/>')
+t(935, 662, "LiPo", 13, "middle", "#222", "bold"); t(935, 678, "250 mAh", 9.5, "middle", "#222")
+wire("M880 640 H900", V3); wire("M880 690 H900", GND)
 
-t(40, 735, "Use the button's two diagonal legs. The ground symbol means connect to GND (the layout uses button leg C, which joins board GND Q16).", 12, "start", "#444")
-t(40, 752, "Where each wire goes on the board: layout.svg.  Full pin table: WIRING.md.", 12, "start", "#444")
+t(40, 765, "The ground symbol means connect to GND (the layout uses button leg D, C20, which joins board GND Q22). Brown tags are joined.", 12, "start", "#444")
+t(40, 782, "Where each wire goes on the board: layout.svg.  Full pin table: WIRING.md.", 12, "start", "#444")
 a("</svg>")
 open(sys.argv[1], "w").write("\n".join(o))

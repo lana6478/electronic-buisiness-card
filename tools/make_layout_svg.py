@@ -54,8 +54,8 @@ TFT_PINS = ["GND", "VCC", "SCL", "SDA", "RES", "DC", "CS", "BLK"]
 TFT = {n: (4 + i, 1) for i, n in enumerate(TFT_PINS)}            # S4-S11
 OLED_PINS = ["GND", "VDD", "SCK", "SDA"]
 OLED = {n: (27 + i, 1) for i, n in enumerate(OLED_PINS)}          # S27-S30
-MCU_L = ["5V", "GND", "3V3", "GPIO4", "GPIO3", "GPIO2", "GPIO1", "GPIO0"]       # number 16, R..K
-MCU_R = ["GPIO5", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO20", "GPIO21"]  # number 22, R..K
+MCU_L = ["GPIO5", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO20", "GPIO21"]  # number 16, R..K
+MCU_R = ["5V", "GND", "3V3", "GPIO4", "GPIO3", "GPIO2", "GPIO1", "GPIO0"]       # number 22, R..K
 MCU = {}
 for i, n in enumerate(MCU_L): MCU[n] = (16, 2 + i)
 for i, n in enumerate(MCU_R): MCU[n] = (22, 2 + i)
@@ -80,7 +80,7 @@ wires = [
     (2, TFT["VCC"], MCU["3V3"], V33_C, "TFT VCC → board 3V3", G_PWR),
     (3, OLED["GND"], MCU["GND"], GND_C, "OLED GND → board GND", G_PWR),
     (4, OLED["VDD"], MCU["3V3"], V33_C, "OLED VDD → board 3V3", G_PWR),
-    (5, BTN["C"], MCU["GND"], GND_C, "Button leg C → board GND", G_PWR),
+    (5, BTN["D"], MCU["GND"], GND_C, "Button leg D → board GND", G_PWR),
     (6, TFT["SCL"], MCU["GPIO4"], "#2a9d8f", "TFT SCL → GPIO4", G_SIG),
     (7, TFT["SDA"], MCU["GPIO6"], "#3a86ff", "TFT SDA → GPIO6", G_SIG),
     (8, TFT["RES"], MCU["GPIO1"], "#8338ec", "TFT RES → GPIO1", G_SIG),
@@ -89,10 +89,10 @@ wires = [
     (11, TFT["BLK"], MCU["GPIO3"], "#c9a227", "TFT BLK → GPIO3", G_SIG),
     (12, OLED["SCK"], MCU["GPIO9"], "#06a77d", "OLED SCK → GPIO9", G_SIG),
     (13, OLED["SDA"], MCU["GPIO8"], "#118ab2", "OLED SDA → GPIO8", G_SIG),
-    (14, BTN["B"], MCU["GPIO5"], "#8d5524", "Button leg B → GPIO5", G_SIG),
+    (14, BTN["A"], MCU["GPIO5"], "#8d5524", "Button leg A → GPIO5", G_SIG),
     (15, SW[2], MCU["5V"], V5_C, "Switch outer pin → diode → 5V", G_BAT),
     (16, TP_PADS["OUT+"], SW[1], V5_C, "TP4056 OUT+ → switch middle", G_BAT),
-    (17, TP_PADS["OUT-"], BTN["C"], GND_C, "TP4056 OUT− → button leg C (GND)", G_BAT),
+    (17, TP_PADS["OUT-"], BTN["D"], GND_C, "TP4056 OUT− → button leg D (GND)", G_BAT),
     (18, BAT_LEADS["red"], TP_PADS["B+"], V33_C, "LiPo red → TP4056 B+", G_BAT),
     (19, BAT_LEADS["black"], TP_PADS["B-"], GND_C, "LiPo black → TP4056 B−", G_BAT),
 ]
@@ -120,11 +120,15 @@ def clearance(a, b, k):
     return worst
 
 def pick_bend(a, b):
-    for k in [0, 0.5, -0.5, 0.8, -0.8, 1.1, -1.1, 1.5, -1.5, 2, -2, 2.5, -2.5, 3, -3, 4, -4]:
-        if clearance(a, b, k) > 0.42:
+    ks = sorted({round(i * 0.25, 2) for i in range(-24, 25)}, key=lambda k: (abs(k), -k))
+    best = (0, -1)
+    for k in ks:
+        cl = clearance(a, b, k)
+        if cl > 0.42:
             return k
-    return 0
-
+        if cl > best[1] + 0.02:
+            best = (k, cl)
+    return best[0]
 
 # ---------------------------------------------------------------- straight (90 degree) router
 def route_straight(wires):
@@ -178,8 +182,7 @@ def _route_order(order):
                     continue
                 if m in pins and m != G:
                     continue
-                if m in near and not (near[m] & {S, G}):
-                    continue
+                foreign = m in near and not (near[m] & {S, G})
                 e = frozenset((node, m))
                 if e in used_edges:
                     continue
@@ -191,6 +194,10 @@ def _route_order(order):
                 c = cost + 1
                 if turning:
                     c += 8
+                    if node in near and not (near[node] & {S, G}):
+                        continue                      # never turn right next to someone else's pin
+                if foreign:
+                    c += 3                            # squeezing past another pin
                 if used_nodes.get(m):
                     c += 4                            # crossing
                 if m[0] % 2 == 0 and m[1] % 2 == 0 and m != G:
@@ -345,8 +352,8 @@ note_block([
     ("", False),
     ("Check before soldering", True),
     ("The TFT pin order (GND at S4) and the", False),
-    ("SuperMini pins (5V at R16, GPIO5 at", False),
-    ("R22) are the usual ones. Check them", False),
+    ("SuperMini pins (5V at R22, GPIO5 at", False),
+    ("R16) match what you told me. Check them", False),
     ("against the printing on your boards.", False),
     ("The button and switch holes are my", False),
     ("guess: any holes work, just keep the", False),
@@ -416,9 +423,9 @@ for (n, a, b, colr, label, group) in wires:
 
 mcu_labels(v, BY, False)
 for lab, (c, r) in BTN.items():
-    if lab in ("B", "C"):
+    if lab in ("A", "D"):
         text(X(c, v) + (10 if c == 18 else -10), Y(r, BY) + 4, lab, 10, "start" if c == 18 else "end", "#000", "bold", halo=True)
-text(X(19, v), Y(18.4, BY) + 4, "button (use legs B and C)", 10, "middle", "#333", "bold", halo=True)
+text(X(19, v), Y(18.4, BY) + 4, "button (use legs A and D)", 10, "middle", "#333", "bold", halo=True)
 text(X(33, v) + 10, Y(15, BY) + 4, "switch", 10, "start", "#333", "bold", halo=True)
 text(X(33, v) + 10, Y(16, BY) + 4, "middle", 9, "start", "#333", halo=True)
 text(X(33, v) + 10, Y(17, BY) + 4, "outer", 9, "start", "#333", halo=True)
@@ -477,8 +484,8 @@ ly = note_block([
     ("Tips", True),
     ("Real wires don't have to follow these lines:", False),
     ("keep them flat. A wire only joins a pin at", False),
-    ("its ends. Board GND (Q16) takes wires 1, 3", False),
-    ("and 5. Button leg C takes wires 5 and 17.", False),
+    ("its ends. Board GND (Q22) takes wires 1, 3", False),
+    ("and 5. Button leg D takes wires 5 and 17.", False),
 ], ly + 34)
 
 foot = BY + (NR + 1.3) * P + 74
