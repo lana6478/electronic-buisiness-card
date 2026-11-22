@@ -6,6 +6,13 @@ QR code**, driven by an ESP32-C3. A **button** flips between scenes, and a small
 **rechargeable battery** on the back means it works without a cable. It
 fits inside a credit card's footprint (85.6 × 54 mm).
 
+## Perfboard layout
+
+Front (where the parts go) and back (where you solder, mirrored), with every
+wire numbered. Details: [build guide](docs/BUILD.md).
+
+![perfboard layout, front and back](docs/layout.svg)
+
 ```
                       33 holes (about 86 mm)
   ┌─────────────────────────────────────────────────────────┐
@@ -50,8 +57,6 @@ The slide switch on the edge cuts the battery completely.
 5. [Troubleshooting](docs/TROUBLESHOOTING.md)
 
 ![wiring](docs/wiring.svg)
-
-![perfboard layout, front and back](docs/layout.svg)
 
 ## Parts (short version)
 
