@@ -2,6 +2,9 @@
 
 ![wiring diagram](wiring.svg)
 
+The diagram is drawn for the ESP32-C3 SuperMini. For the XIAO, use the
+XIAO columns in the tables below.
+
 Where each wire goes on the perfboard (front and mirrored back view):
 [layout.svg](layout.svg).
 

@@ -1,111 +1,105 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Helvetica, Arial, sans-serif" font-size="14">
-  <rect width="900" height="640" fill="#ffffff"/>
-  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Wiring - ESP32-C3 SuperMini [XIAO pins in brackets]</text>
-
-  <!-- TFT -->
-  <rect x="30" y="70" width="230" height="300" rx="10" fill="#1d3557"/>
-  <rect x="55" y="140" width="180" height="210" rx="18" fill="#a8dadc"/>
-  <text x="145" y="250" text-anchor="middle" fill="#1d3557" font-weight="bold">1.69" ST7789</text>
-  <text x="145" y="270" text-anchor="middle" fill="#1d3557">240 x 280 SPI</text>
-
-  <!-- MCU -->
-  <rect x="360" y="150" width="180" height="260" rx="10" fill="#2a2a2a"/>
-  <rect x="420" y="135" width="60" height="25" rx="5" fill="#999"/>
-  <text x="450" y="152" text-anchor="middle" font-size="11">USB-C</text>
-  <text x="450" y="285" text-anchor="middle" fill="#fff" font-weight="bold">ESP32-C3</text>
-  <text x="450" y="303" text-anchor="middle" fill="#ccc" font-size="12">SuperMini / XIAO</text>
-
-  <!-- OLED -->
-  <rect x="650" y="70" width="220" height="190" rx="10" fill="#1d3557"/>
-  <rect x="670" y="110" width="180" height="22" fill="#ffd60a"/>
-  <rect x="670" y="132" width="180" height="70" fill="#4cc9f0"/>
-  <text x="760" y="226" text-anchor="middle" fill="#fff" font-weight="bold">0.96" SSD1306</text>
-  <text x="760" y="244" text-anchor="middle" fill="#fff">128 x 64 I2C</text>
-
-  <!-- Wires: label lines -->
-  <g stroke-width="3" fill="none">
-    <!-- TFT -->
-    <path d="M260 100 H330 V390 H360" stroke="#000"/>
-    <path d="M260 130 H320 V380 H360" stroke="#e63946"/>
-    <path d="M260 160 H360" stroke="#f4a261"/>
-    <path d="M260 190 H360" stroke="#2a9d8f"/>
-    <path d="M260 220 H360" stroke="#8338ec"/>
-    <path d="M260 250 H360" stroke="#3a86ff"/>
-    <path d="M260 280 H310 V330 H360" stroke="#ff006e"/>
-    <path d="M260 310 H300 V350 H360" stroke="#6c757d"/>
-    <!-- OLED -->
-    <path d="M650 100 H580 V390 H540" stroke="#000"/>
-    <path d="M650 130 H570 V380 H540" stroke="#e63946"/>
-    <path d="M650 160 H600 V200 H540" stroke="#06d6a0"/>
-    <path d="M650 190 H610 V230 H540" stroke="#118ab2"/>
-  </g>
-
-  <g font-size="12" fill="#222">
-    <text x="265" y="96">GND</text>
-    <text x="265" y="126">VCC</text>
-    <text x="265" y="156">SCL</text>
-    <text x="265" y="186">SDA</text>
-    <text x="265" y="216">RES</text>
-    <text x="265" y="246">DC</text>
-    <text x="265" y="276">CS</text>
-    <text x="265" y="306">BLK</text>
-
-    <text x="368" y="164" fill="#fff">GPIO4 [D8]</text>
-    <text x="368" y="194" fill="#fff">GPIO6 [D10]</text>
-    <text x="368" y="224" fill="#fff">GPIO1 [D0]</text>
-    <text x="368" y="254" fill="#fff">GPIO10 [D1]</text>
-    <text x="368" y="334" fill="#fff">GPIO7 [D2]</text>
-    <text x="368" y="354" fill="#fff">GPIO3 [D3]</text>
-    <text x="368" y="384" fill="#fff">3V3</text>
-    <text x="368" y="400" fill="#fff">GND</text>
-
-    <text x="612" y="96">GND</text>
-    <text x="612" y="126">VCC</text>
-    <text x="612" y="156">SCL</text>
-    <text x="612" y="186">SDA</text>
-    <text x="532" y="204" text-anchor="end" fill="#fff">GPIO9 [D5]</text>
-    <text x="532" y="234" text-anchor="end" fill="#fff">GPIO8 [D4]</text>
-  </g>
-
-
-  <!-- Button -->
-  <path d="M540 260 H620 V470" stroke="#fb8500" stroke-width="3" fill="none"/>
-  <text x="532" y="264" text-anchor="end" font-size="12" fill="#fff">GPIO5 [D7]</text>
-  <rect x="590" y="470" width="60" height="60" rx="6" fill="#444"/>
-  <circle cx="620" cy="500" r="18" fill="#e63946"/>
-  <path d="M650 500 H700 V390 H580" stroke="#000" stroke-width="3" fill="none"/>
-  <text x="708" y="450" font-size="12" fill="#222">GND</text>
-  <text x="620" y="550" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">Push button</text>
-  <text x="620" y="566" text-anchor="middle" font-size="12" fill="#444">tap = next, hold = sleep</text>
-
-  <!-- Battery: LiPo -> TP4056 -> switch -> diode -> 5V -->
-  <rect x="20" y="470" width="110" height="60" rx="8" fill="#ffd166" stroke="#222"/>
-  <text x="75" y="497" text-anchor="middle" font-weight="bold" fill="#222">3.7V LiPo</text>
-  <text x="75" y="514" text-anchor="middle" font-size="11" fill="#222">250 mAh</text>
-  <rect x="160" y="460" width="100" height="80" rx="6" fill="#1d3557"/>
-  <text x="210" y="490" text-anchor="middle" font-weight="bold" fill="#fff">TP4056</text>
-  <text x="210" y="506" text-anchor="middle" font-size="11" fill="#ddd">USB-C charger</text>
-  <text x="166" y="478" font-size="10" fill="#fff">B+</text>
-  <text x="166" y="534" font-size="10" fill="#fff">B-</text>
-  <text x="254" y="478" text-anchor="end" font-size="10" fill="#fff">OUT+</text>
-  <text x="254" y="534" text-anchor="end" font-size="10" fill="#fff">OUT-</text>
-  <path d="M130 480 H160" stroke="#e63946" stroke-width="3"/>
-  <path d="M130 520 H160" stroke="#000" stroke-width="3"/>
-  <rect x="280" y="463" width="36" height="20" rx="3" fill="#666"/>
-  <rect x="287" y="457" width="9" height="9" fill="#222"/>
-  <text x="298" y="500" text-anchor="middle" font-size="11" fill="#222">switch</text>
-  <path d="M260 473 H280" stroke="#e63946" stroke-width="3"/>
-  <!-- diode -->
-  <path d="M316 473 H335" stroke="#e63946" stroke-width="3"/>
-  <polygon points="335,463 335,483 352,473" fill="#222"/>
-  <rect x="352" y="463" width="3" height="20" fill="#222"/>
-  <text x="345" y="500" text-anchor="middle" font-size="11" fill="#222">1N5817</text>
-  <path d="M355 473 H390 V410" stroke="#e63946" stroke-width="3" fill="none"/>
-  <text x="384" y="440" text-anchor="end" font-size="12" fill="#222">5V</text>
-  <path d="M260 530 H430 V410" stroke="#000" stroke-width="3" fill="none"/>
-  <text x="438" y="470" font-size="12" fill="#222">GND</text>
-  <text x="250" y="565" text-anchor="middle" font-size="12" fill="#444">Charge by plugging USB-C into the TP4056. XIAO instead: skip TP4056 + diode,</text>
-  <text x="250" y="581" text-anchor="middle" font-size="12" fill="#444">LiPo (via switch) goes straight to the BAT+/BAT- pads under the XIAO.</text>
-  <text x="450" y="612" text-anchor="middle" font-size="13" fill="#444">Both screens run from 3V3. All grounds are joined. Full pin table: docs/WIRING.md</text>
-  <text x="450" y="630" text-anchor="middle" font-size="13" fill="#444">XIAO: same wiring using the [bracketed] pins.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" font-family="Helvetica, Arial, sans-serif">
+<rect width="1000" height="760" fill="#ffffff"/>
+<text x="500.0" y="32" font-size="20" text-anchor="middle" fill="#222" font-weight="bold">Wiring: ESP32-C3 SuperMini (parts placed as on the board)</text>
+<text x="500.0" y="52" font-size="12.5" text-anchor="middle" fill="#555" font-weight="normal">Lines only join where there is a dot. Lines that just cross are not connected.</text>
+<path d="M262 100 H738" stroke="#111" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+<text x="500" y="94" font-size="12" text-anchor="middle" fill="#111" font-weight="bold">GND</text>
+<path d="M276 118 H724" stroke="#e63946" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+<text x="560" y="136" font-size="12" text-anchor="middle" fill="#e63946" font-weight="bold">3V3</text>
+<rect x="40" y="160" width="190" height="320" rx="10" fill="#1d3557"/>
+<rect x="58" y="300" width="110" height="150" rx="12" fill="#a8dadc"/>
+<text x="113" y="370" font-size="13" text-anchor="middle" fill="#1d3557" font-weight="bold">1.69" TFT</text>
+<text x="113" y="388" font-size="11" text-anchor="middle" fill="#1d3557" font-weight="normal">ST7789</text>
+<text x="60" y="182" font-size="11" text-anchor="start" fill="#cde" font-weight="normal">pins S4 – S11</text>
+<text x="222" y="194" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">GND</text>
+<text x="222" y="229" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">VCC</text>
+<text x="222" y="264" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">SCL</text>
+<text x="222" y="299" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">SDA</text>
+<text x="222" y="334" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">RES</text>
+<text x="222" y="369" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">DC</text>
+<text x="222" y="404" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">CS</text>
+<text x="222" y="439" font-size="12" text-anchor="end" fill="#fff" font-weight="bold">BLK</text>
+<rect x="430" y="150" width="160" height="295" rx="8" fill="#2a2a2a"/>
+<rect x="485" y="126" width="50" height="28" rx="5" fill="#aaa"/>
+<text x="510" y="145" font-size="10" text-anchor="middle" fill="#222" font-weight="bold">USB-C</text>
+<text x="510" y="300" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">ESP32-C3</text>
+<text x="510" y="317" font-size="11" text-anchor="middle" fill="#ccc" font-weight="normal">SuperMini</text>
+<text x="438" y="184" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">5V</text>
+<text x="438" y="218" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">GND</text>
+<text x="438" y="252" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">3V3</text>
+<text x="438" y="286" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">GPIO4</text>
+<text x="438" y="320" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">GPIO3</text>
+<text x="438" y="354" font-size="11" text-anchor="start" fill="#777" font-weight="normal">GPIO2</text>
+<text x="438" y="388" font-size="11" text-anchor="start" fill="#fff" font-weight="bold">GPIO1</text>
+<text x="438" y="422" font-size="11" text-anchor="start" fill="#777" font-weight="normal">GPIO0</text>
+<text x="582" y="184" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO5</text>
+<text x="582" y="218" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO6</text>
+<text x="582" y="252" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO7</text>
+<text x="582" y="286" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO8</text>
+<text x="582" y="320" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO9</text>
+<text x="582" y="354" font-size="11" text-anchor="end" fill="#fff" font-weight="bold">GPIO10</text>
+<text x="582" y="388" font-size="11" text-anchor="end" fill="#777" font-weight="normal">GPIO20</text>
+<text x="582" y="422" font-size="11" text-anchor="end" fill="#777" font-weight="normal">GPIO21</text>
+<text x="510" y="438" font-size="9.5" text-anchor="middle" fill="#aaa" font-weight="normal">col 16 ← → col 22</text>
+<rect x="770" y="160" width="190" height="170" rx="10" fill="#1d3557"/>
+<rect x="840" y="200" width="105" height="18" fill="#ffd60a"/><rect x="840" y="218" width="105" height="70" fill="#4cc9f0"/>
+<text x="892" y="310" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">0.96" OLED</text>
+<text x="940" y="182" font-size="10.5" text-anchor="end" fill="#cde" font-weight="normal">pins S27 – S30</text>
+<text x="778" y="194" font-size="12" text-anchor="start" fill="#fff" font-weight="bold">GND</text>
+<text x="778" y="229" font-size="12" text-anchor="start" fill="#fff" font-weight="bold">VDD</text>
+<text x="778" y="264" font-size="12" text-anchor="start" fill="#fff" font-weight="bold">SCK</text>
+<text x="778" y="299" font-size="12" text-anchor="start" fill="#fff" font-weight="bold">SDA</text>
+<path d="M230 190 H262 V100" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="262" cy="100" r="4.5" fill="#111"/>
+<path d="M230 225 H276 V118" stroke="#e63946" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="276" cy="118" r="4.5" fill="#111"/>
+<path d="M430 214 H392 V100" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="392" cy="100" r="4.5" fill="#111"/>
+<path d="M430 248 H378 V118" stroke="#e63946" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="378" cy="118" r="4.5" fill="#111"/>
+<path d="M770 190 H738 V100" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="738" cy="100" r="4.5" fill="#111"/>
+<path d="M770 225 H724 V118" stroke="#e63946" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<circle cx="724" cy="118" r="4.5" fill="#111"/>
+<path d="M230 260 H330 V282 H430" stroke="#2a9d8f" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M230 330 H315 V384 H430" stroke="#8338ec" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M230 435 H345 V316 H430" stroke="#c9a227" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M230 295 H285 V560 H690 V214 H590" stroke="#3a86ff" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M230 400 H295 V545 H675 V248 H590" stroke="#6c757d" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M230 365 H305 V530 H660 V350 H590" stroke="#ff006e" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M770 260 H640 V316 H590" stroke="#06a77d" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M770 295 H625 V282 H590" stroke="#118ab2" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<rect x="480" y="610" width="60" height="60" rx="6" fill="#444"/><circle cx="510" cy="640" r="17" fill="#e63946"/>
+<text x="510" y="690" font-size="11.5" text-anchor="middle" fill="#222" font-weight="bold">button (F18 F20 C18 C20)</text>
+<text x="510" y="705" font-size="10.5" text-anchor="middle" fill="#555" font-weight="normal">tap = next, hold = sleep</text>
+<path d="M590 180 H754 V640 H540" stroke="#8d5524" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<text x="758" y="420" font-size="10.5" text-anchor="start" fill="#8d5524" font-weight="bold">GPIO5</text>
+<path d="M480 640 H455 V660" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M455 660 v10 M445 670 h20 M449 675 h12 M453 680 h4" stroke="#111" stroke-width="2.5" fill="none"/>
+<rect x="40" y="610" width="90" height="56" rx="8" fill="#ffd166" stroke="#222"/>
+<text x="85" y="634" font-size="13" text-anchor="middle" fill="#222" font-weight="bold">LiPo</text>
+<text x="85" y="650" font-size="9.5" text-anchor="middle" fill="#222" font-weight="normal">3.7 V 250 mAh</text>
+<rect x="160" y="600" width="110" height="80" rx="6" fill="#1d3557"/>
+<text x="215" y="637" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">TP4056</text>
+<text x="215" y="652" font-size="10" text-anchor="middle" fill="#ccd" font-weight="normal">USB-C charger</text>
+<text x="166" y="618" font-size="10" text-anchor="start" fill="#fff" font-weight="bold">B+</text>
+<text x="166" y="675" font-size="10" text-anchor="start" fill="#fff" font-weight="bold">B−</text>
+<text x="264" y="618" font-size="10" text-anchor="end" fill="#fff" font-weight="bold">OUT+</text>
+<text x="264" y="675" font-size="10" text-anchor="end" fill="#fff" font-weight="bold">OUT−</text>
+<path d="M130 620 H160" stroke="#e63946" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M130 656 H160" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M270 670 H290 V690" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<path d="M290 690 v10 M280 700 h20 M284 705 h12 M288 710 h4" stroke="#111" stroke-width="2.5" fill="none"/>
+<path d="M270 614 H300" stroke="#f77f00" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<rect x="300" y="604" width="40" height="20" rx="3" fill="#8d99ae" stroke="#555"/><rect x="306" y="597" width="10" height="9" fill="#333"/>
+<text x="320" y="642" font-size="11" text-anchor="middle" fill="#222" font-weight="bold">switch</text>
+<text x="320" y="656" font-size="9.5" text-anchor="middle" fill="#555" font-weight="normal">E33 D33 C33</text>
+<path d="M340 614 H352" stroke="#f77f00" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<polygon points="352,603 352,625 372,614" fill="#222"/><rect x="372" y="603" width="4" height="22" fill="#222"/>
+<text x="364" y="642" font-size="10.5" text-anchor="middle" fill="#222" font-weight="bold">1N5817</text>
+<text x="364" y="670" font-size="9.5" text-anchor="middle" fill="#555" font-weight="normal">stripe → 5V</text>
+<path d="M376 614 H405 V180 H430" stroke="#f77f00" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<text x="410" y="595" font-size="11" text-anchor="start" fill="#f77f00" font-weight="bold">5V</text>
+<text x="40" y="735" font-size="12" text-anchor="start" fill="#444" font-weight="normal">Use the button's two diagonal legs. The ground symbol means connect to GND (the layout uses button leg C, which joins board GND Q16).</text>
+<text x="40" y="752" font-size="12" text-anchor="start" fill="#444" font-weight="normal">Where each wire goes on the board: layout.svg.  Full pin table: WIRING.md.</text>
 </svg>
